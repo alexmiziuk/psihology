@@ -1,11 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Document</title>
 </head>
+
 <body>
-	
+	<nav class="nav">
+		<div class="container">
+			<div class="nav__container">
+				<div class="nav__logo-wrapper">
+					<img src="./icons/logo/Logo-icon.png" alt="logo" class="nav__logo-img">
+					<div class="nav__logo-name">
+						Toni Mrvič
+					</div>
+					<div class="nav__logo-specialist">Osebni in partnerski svetovalec</div>
+				</div>
+				<div class="nav__menu">
+					<a class="nav__menu-item" href="#glavna">Glavna</a>
+					<a class="nav__menu-item" href="#o-meni">O meni</a>
+					<a class="nav__menu-item" href="#storitve">Storitve</a>
+					<div class="nav__menu-item nav__menu-item--dropdown" id="my-expertise">Moja strokovnost
+						<div class="submenu-my-expertise">
+							<div class="submenu-wrapper-expertise">
+								<a href="#moje-spretnosti">Moje spretnosti</a>
+								<a href="#mnenja">Mnenja</a>
+								<a href="#proces-dela">Proces dela</a>
+							</div>
+						</div>
+					</div>
+					<div class="nav__menu-item nav__menu-item--dropdown" id="my-works">Moja dela
+						<div class="submenu-my-works">
+							<div class="submenu-wrapper-works">
+								<a class="submenu__item" href="#moje-intervju-in-članki">Moje intervju in članki</a>
+								<a href="#moje-knige">Moje knige</a>
+							</div>
+						</div>
+					</div>
+					<div class="nav__menu-item nav__menu-item--dropdown" id="contacts">Kontakti
+						<div class="submenu-contacts submenu-contacts--position ">
+							<div class="submenu-wrapper-contacts">
+								<a href="#kontakti">Kontakti</a>
+								<a class="submenu__item" href="#dodatne-informacije">Dodatne informacije</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</nav>
+	<div class="burger" id="toggleBurger">
+		<span class="burger__line"></span>
+		<span class="burger__line"></span>
+		<span class="burger__line"></span>
+	</div>
+	<div class="burger-layer">
+		<div class="burger-menu">
+			<div class="burger-menu__container">
+				<a class="burger-menu__item" href="#glavna">Glavna</a>
+				<a class="burger-menu__item" href="#o-meni">O meni</a>
+				<a class="burger-menu__item" href="#storitve">Moje storitve</a>
+				<a class="burger-menu__item" href="#moje-spretnosti">Moje spretnosti</a>
+				<a class="burger-menu__item" href="#mnenja">Mnenija</a>
+				<a class="burger-menu__item" href="#proces-dela">Proces dela</a>
+				<a class="burger-menu__item" href="#moje-intervju-in-članki">Moje intervju in članki</a>
+				<a class="burger-menu__item" href="#moje-knige">Moje knige</a>
+				<a class="burger-menu__item" href="#kontakti">Kontakti</a>
+				<a class="burger-menu__item" href="#dodatne-informacije">Dodatne informacije</a>
+			</div>
+		</div>
+	</div>
+	<main>
+		<section class="promo">
+			<div class="container">
+				<div class="promo__wrapper">
+					<h1 class="promo__title">
+						Dobrodošli v svet harmonije in duševnega ravnovesja
+					</h1>
+					<p class="promo__item">
+						Pomagam vam najti notranjo moč in samozavest
+					</p>
+					<a href="#o-meni" class="promo__btn">
+						O meni
+					</a>
+				</div>
+			</div>
+		</section>
+		<section class="about-me">
+			<div class="container">
+				<div class="about-me__wrapper">
+					<img src="./img/image/psiholog-img.png" 
+					alt="fotografija moškega psihologa"
+					class="about-me__img">
+					<div class="about-me__text-block">
+						<h2 class="about-me__title">O meni</h2>
+						<p class="about-me__text-first">
+							Moje ime je Toni Mrvič, sem osebni in partnerski svetovalec z dolgoletnimi izkušnjami 
+							na področju odnosov in vzopostavljanja notranjega ravnovesja. Moj cilj je pomagati vam najti notranje ravnovesje,
+							izboljšati kakovost življenja in odkriti vaš potencial.
+						</p>
+						<p class="about-me__text-second">Verjamem, da je vsak človek edinstven in ima ogromne vire za premagovanje 
+							življenjskih težav. Moja naloga je podpreti vas na tej poti, vam pomagati razumeti in sprejeti sebe, 
+							vas naučiti obvladovati čustva in stres ter razviti veščine, potrebne za dosego notranje harmonije ter vzpostavljanje 
+							zdravih odnosov.
+						</p>
+					</div>
+				</div>
+			</div>
+		</section>
+	</main>
 </body>
+
 </html>

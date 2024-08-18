@@ -5,7 +5,22 @@
 html {
 	scroll-behavior: smooth;
 }
-
+.container {
+	display: block;
+	margin: 0 auto;
+	max-width: 1440px; /* Используйте max-width вместо width */
+	width: 100%
+	
+}
+a {
+	text-decoration: none;
+}
 
 @import "libs/normalize";
+@import "style/fonts";
+@import "style/nav";
+@import "style/burger";
+@import "style/burgerMenu";
+@import "style/promo";
+@import "style/o-meni";
 

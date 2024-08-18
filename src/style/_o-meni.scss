@@ -1,0 +1,146 @@
+.about-me {
+	padding: 112px 0 112px 0;
+	&__wrapper {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		width: 100%;
+	}
+	&__img {
+		width: 725.05px;
+		height: 724px;
+	}
+	&__text-block {
+		margin-left: 137px;
+	}
+	&__title {
+		color: #828282;
+		font-family: "Roboto-Black", sans-serif;
+		font-size: 64px;
+		line-height: auto;
+	}
+	&__text-first,
+	&__text-second {
+		margin-top: 68px;
+		font-family: "Roboto-Regular", sans-serif;
+		font-size: 20px;
+		line-height: 32px;
+		color: #463f3d;
+	}
+	&__text-second {
+		margin-top: 41px;
+	}
+}
+
+@media (max-width: 1920px) {
+	.about-me {
+		&__wrapper {
+			justify-content: center;
+		}
+		&__img {
+			width: 50%;
+			height: auto;
+		}
+		&__text-block {
+			margin-left: 50px;
+		}
+		&__title {
+			font-size: 50px;
+		}
+		&__text-first,
+		&__text-second {
+			margin-top: 50px;
+			font-size: 16px;
+			line-height: 30px;
+		}
+		&__text-second {
+			margin-top: 30px;
+		}
+	}
+}
+@media (max-width: 1200px) {
+	.about-me {
+		&__text-block {
+			margin-left: 30px;
+		}
+		&__text-first,
+		&__text-second {
+			margin-top: 40px;
+		}
+		&__text-second {
+			margin-top: 20px;
+		}
+	}
+}
+@media (max-width: 992px) {
+	.about-me {
+		&__title {
+			font-size: 37px;
+		}
+		&__text-first,
+		&__text-second {
+			margin-top: 30px;
+			font-size: 15px;
+			line-height: 27px;
+		}
+		&__text-second {
+			margin-top: 15px;
+		}
+	}
+}
+
+@media (max-width: 822px) {
+	.about-me {
+		&__text-first,
+		&__text-second {
+			margin-top: 20px;
+			font-size: 14px;
+			line-height: 25px;
+		}
+		&__text-second {
+			margin-top: 12px;
+		}
+	}
+}
+
+@media (max-width: 768px) {
+	.about-me {
+		padding: 80px 0 80px 0;
+		&__wrapper {
+			flex-direction: column-reverse;
+		}
+		&__img {
+			margin-top: 40px;
+			width: 500px;
+		}
+		&__text-block {
+			margin-left: 0;
+		}
+	}
+}
+
+@media (max-width: 576px) {
+	.about-me {
+		&__title {
+			font-size: 30px;
+		}
+		&__img {
+			width: 100%;
+		}
+	}
+}
+
+@media (max-width: 425px) {
+	.about-me {
+		padding: 50px 0 50px 0;
+		&__title {
+			font-size: 28px;
+		}
+		&__img {
+			object-fit: cover; /* Масштабирование с обрезкой и без искажения */
+			object-position: center;
+			height: 450px;
+			margin-top: 20px;
+		}
+	}
+}
