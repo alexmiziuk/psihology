@@ -15,6 +15,44 @@ html {
 a {
 	text-decoration: none;
 }
+.divider {
+	position: absolute;
+	width: 827px;
+	height: 1px;
+	background-color: #000000;
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+	top: 0;	
+}
+@media (max-width: 1920px) {
+	.divider {
+		width: 600px;
+	}
+}
+
+@media (max-width: 1200px) {
+	.divider {
+		width: 400px;
+	}
+}
+
+@media (max-width: 768px) {
+	.divider {
+		width: 300px;
+	}
+}
+
+@media (max-width: 576px) {
+	.divider {
+		width: 200px;
+	}
+}
+@media (max-width: 475px) {
+	.divider {
+		width: 150px;
+	}
+}	
 
 @import "libs/normalize";
 @import "style/fonts";
@@ -23,4 +61,5 @@ a {
 @import "style/burgerMenu";
 @import "style/promo";
 @import "style/o-meni";
+@import "style/services";
 

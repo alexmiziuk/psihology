@@ -14,7 +14,7 @@
 		margin-left: 137px;
 	}
 	&__title {
-		color: #828282;
+		color: #66605d;
 		font-family: "Roboto-Black", sans-serif;
 		font-size: 64px;
 		line-height: auto;
@@ -38,11 +38,11 @@
 			justify-content: center;
 		}
 		&__img {
-			width: 50%;
+			width: 44%;
 			height: auto;
 		}
 		&__text-block {
-			margin-left: 50px;
+			margin-left: 120px;
 		}
 		&__title {
 			font-size: 50px;
@@ -58,10 +58,10 @@
 		}
 	}
 }
-@media (max-width: 1200px) {
+@media (max-width: 1440px) {
 	.about-me {
 		&__text-block {
-			margin-left: 30px;
+			margin-left: 100px;
 		}
 		&__text-first,
 		&__text-second {
@@ -69,6 +69,27 @@
 		}
 		&__text-second {
 			margin-top: 20px;
+		}
+	}
+}
+@media (max-width: 1200px) {
+	.about-me {
+		&__text-block {
+			margin-left: 80px;
+		}
+		&__text-first,
+		&__text-second {
+			margin-top: 40px;
+		}
+		&__text-second {
+			margin-top: 20px;
+		}
+	}
+}
+@media (max-width: 1024px) {
+	.about-me {
+		&__text-block {
+			margin-left: 45px;
 		}
 	}
 }
@@ -89,7 +110,7 @@
 	}
 }
 
-@media (max-width: 822px) {
+@media (max-width: 885px) {
 	.about-me {
 		&__text-first,
 		&__text-second {
