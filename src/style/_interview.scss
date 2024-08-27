@@ -90,13 +90,16 @@
 
 @media (max-width: 1920px) {
 	.interview {
+		&__title {
+			font-size: 50px;
+		}
 		.slick-arrow {
 			border: 1px solid #f89f73;
 			border-radius: 50%;
 			background-color: transparent;
 			width: 30px;
 			height: 30px;
-			top: 123.5%;
+			top: 127%;
 		}
 		.slick-prev {
 			&::before {
@@ -143,7 +146,7 @@
 			font-size: 20px;
 		}
 		.slick-arrow {
-			top: 125.5%;
+			top: 123%;
 		}
 	}
 }
@@ -161,6 +164,9 @@
 		&__slide-body {
 			height: 400px;
 		}
+		.slick-arrow {
+			top: 126%;
+		}
 	}
 }
 
@@ -171,10 +177,16 @@
 		}
 		&__slide-body {
 			height: 367px;
-	  }
+		}
 	}
 }
-
+@media (max-width: 992px) {
+	.interview {
+		.slick-arrow {
+			top: 128.5%;
+		}
+	}
+}
 @media (max-width: 855px) {
 	.interview {
 		&__slide-body {
