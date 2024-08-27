@@ -25,6 +25,10 @@ a {
 	margin: 0 auto;
 	top: 0;	
 }
+
+ul {
+	list-style-type: none; /* Убираем маркеры */
+}
 @media (max-width: 1920px) {
 	.divider {
 		width: 600px;
@@ -64,4 +68,6 @@ a {
 @import "style/services";
 @import "style/skills";
 @import "style/reviews";
+@import "style/process";
+@import "style/interview";
 

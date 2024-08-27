@@ -1,0 +1,186 @@
+.interview {
+	padding: 112px 0 193px 0;
+	background-image: url(./img/Background/background-interview.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	&__title {
+		font-family: Roboto-Black, sans-serif;
+		font-size: 64px;
+		text-align: center;
+		color: white;
+	}
+	&__slider {
+		margin-top: 80px;
+	}
+	&__slide {
+		width: 100%;
+	}
+	&__slide-body {
+		margin: 0 5.5%;
+		height: 465px;
+		background-color: rgb(0, 00, 0, 15%);
+	}
+	&__slide-img {
+		height: auto;
+		width: 100%;
+		object-fit: cover;
+	}
+	&__slide-link {
+		margin-top: 15px;
+		display: inline-block;
+		font-family: "SpaceGrotesk-Bold", sans-serif;
+		font-size: 24px;
+		color: #ffffff;
+		padding: 0 20px;
+		line-height: 34px;
+		text-decoration: underline;
+	}
+	.slick-arrow {
+		border: 1px solid #f89f73;
+		border-radius: 50%;
+		background-color: transparent;
+		width: 60px;
+		height: 60px;
+		top: 121.5%;
+		z-index: 1000;
+	}
+	.slick-prev {
+		left: 226px !important;
+		&::before {
+			content: "<";
+			font-family: "Roboto-Light", sans-serif;
+			color: #f89f73;
+			font-size: 50px;
+		}
+	}
+	.slick-next {
+		right: 226px !important;
+		&::before {
+			content: ">";
+			font-family: "Roboto-Light", sans-serif;
+			color: #f89f73;
+			font-size: 50px;
+		}
+	}
+	.slick-dots {
+		bottom: -114px;
+		li button:before {
+			font-family: "slick";
+			font-size: 14px;
+			line-height: 20px;
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 20px;
+			height: 20px;
+			content: "•";
+			text-align: center;
+			opacity: 0.8;
+			color: #f89f73;
+			-webkit-font-smoothing: antialiased;
+			-moz-osx-font-smoothing: grayscale;
+		}
+	}
+	.slick-dots li.slick-active button:before {
+		opacity: 0.75;
+		color: rgb(202, 201, 201);
+	}
+}
+
+@media (max-width: 1920px) {
+	.interview {
+		.slick-arrow {
+			border: 1px solid #f89f73;
+			border-radius: 50%;
+			background-color: transparent;
+			width: 30px;
+			height: 30px;
+			top: 123.5%;
+		}
+		.slick-prev {
+			&::before {
+				content: "<";
+				font-family: "Roboto-Light", sans-serif;
+				color: #f89f73;
+				font-size: 25px;
+			}
+		}
+		.slick-next {
+			&::before {
+				content: ">";
+				font-family: "Roboto-Light", sans-serif;
+				color: #f89f73;
+				font-size: 25px;
+			}
+		}
+		.slick-dots {
+			li button:before {
+				font-size: 10px;
+				width: 20px;
+				height: 20px;
+			}
+		}
+	}
+}
+
+@media (max-width: 1440px) {
+	.interview {
+		&__slide-body {
+			height: 408px;
+		}
+		&__title {
+			font-size: 50px;
+		}
+		&__slide-link {
+			font-size: 20px;
+		}
+		.slick-arrow {
+			top: 125.5%;
+		}
+	}
+}
+
+@media (max-width: 855px) {
+	.interview {
+		&__slide-body {
+			height: 375px;
+		}
+	}
+}
+
+@media (max-width: 768px) {
+	.interview {
+		padding: 80px 0 116px 0;
+		&__slide-body {
+			height: 355px;
+		}
+		&__title {
+			font-size: 30px;
+		}
+		.slick-dots {
+			bottom: -96px;
+		}
+	}
+}
+
+@media (max-width: 767px) {
+	.interview {
+		&__slide-body {
+			height: 430px;
+		}
+	}
+}
+
+@media (max-width: 576px) {
+	.interview {
+		&__slide-body {
+			height: 450px;
+			max-width: 351px;
+			margin: 0 auto;
+		}
+		&__slide-img {
+			
+		}
+	}
+}
