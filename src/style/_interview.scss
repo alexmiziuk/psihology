@@ -121,13 +121,20 @@
 				height: 20px;
 			}
 		}
+		&__slide-body {
+			height: 390px;
+		}
+		&__slide-link {
+			font-size: 19px;
+			font-family: "Grotesk-regular", sans-serif;
+		}
 	}
 }
 
 @media (max-width: 1440px) {
 	.interview {
 		&__slide-body {
-			height: 408px;
+			height: 405px;
 		}
 		&__title {
 			font-size: 50px;
@@ -138,6 +145,33 @@
 		.slick-arrow {
 			top: 125.5%;
 		}
+	}
+}
+
+@media (max-width: 1439px) {
+	.interview {
+		&__slide-body {
+			height: 452px;
+		}
+	}
+}
+
+@media (max-width: 1200px) {
+	.interview {
+		&__slide-body {
+			height: 400px;
+		}
+	}
+}
+
+@media (max-width: 1024px) {
+	.interview {
+		&__slide-link {
+			font-size: 18px;
+		}
+		&__slide-body {
+			height: 367px;
+	  }
 	}
 }
 
@@ -178,9 +212,6 @@
 			height: 450px;
 			max-width: 351px;
 			margin: 0 auto;
-		}
-		&__slide-img {
-			
 		}
 	}
 }
