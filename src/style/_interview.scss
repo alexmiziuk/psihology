@@ -5,10 +5,11 @@
 	background-position: center;
 	background-size: cover;
 	&__title {
-		font-family: Roboto-Black, sans-serif;
+		font-family: "Roboto-Regular", sans-serif;
 		font-size: 64px;
 		text-align: center;
 		color: white;
+		letter-spacing: 0.5px;
 	}
 	&__slider {
 		margin-top: 80px;
@@ -91,7 +92,7 @@
 @media (max-width: 1920px) {
 	.interview {
 		&__title {
-			font-size: 50px;
+			font-size: 47px;
 		}
 		.slick-arrow {
 			border: 1px solid #f89f73;

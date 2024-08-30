@@ -11,25 +11,27 @@
 		width: 719px;
 	}
 	&__title {
-		font-family: "Roboto-Black", sans-serif;
+		font-family: "Roboto-Regular", sans-serif;
 		font-size: 64px;
 		color: white;
+		letter-spacing: 0.5px;
 	}
 	&__question {
-		font-family: SpaceGrotesk-Bold, sans-serif;
+		font-family: "SpaceGrotesk-Regular", sans-serif;
 		font-size: 32px;
 		color: white;
 		margin-top: 49px;
 		color: #c2a53d;
 	}
 	&__text {
-		font-family: "SpaceGrotesk-Medium", sans-serif;
+		font-family: "SpaceGrotesk-Regular", sans-serif;
 		font-size: 26px;
 		line-height: 38px;
 		margin-top: 32px;
 		color: white;
 		width: 338px;
 		margin-left: 32%;
+		letter-spacing: 0.5px;
 	}
 }
 
@@ -41,7 +43,7 @@
 			border-radius: 14px;
 		}
 		&__title {
-			font-size: 50px;
+			font-size: 47px;
 		}
 		&__question {
 			font-size: 28px;
@@ -51,7 +53,7 @@
 			font-size: 18px;
 			line-height: 31px;
 			margin-left: 29%;
-			margin-top: 29px;
+			margin-top: 23px;
 			width: 319px;
 		}
 	}

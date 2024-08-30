@@ -1,8 +1,9 @@
 .reviews {
-	padding: 112px 0 193px 0;
+	padding: 112px 0 166px 0;
 	&__title {
 		color: #66605d;
-		font-family: "Roboto-Black", sans-serif;
+		font-family: "Roboto-Regular", sans-serif;
+		letter-spacing: 0.5px;
 		font-size: 64px;
 		text-align: center;
 	}
@@ -123,22 +124,22 @@
 		}
 
 		&__title {
-			font-size: 50px;
+			font-size: 47px;
 		}
 		&__wrapper-img-name {
 			width: 90%;
 		}
 		&__card-img {
-			width: 120px;
+			width: 90px;
 		}
 		&__card-name {
 			margin-left: 40px;
-			font-size: 24px;
+			font-size: 21px;
 		}
 		&__card-text {
 			margin-top: 40px;
 			font-size: 16px;
-			line-height: 28px;
+			line-height: 30px;
 		}
 	}
 }
@@ -239,8 +240,6 @@
 		}
 		&__title {
 			font-size: 37px;
-		}
-		&__slider {
 		}
 		&__card-img {
 			width: 80px;

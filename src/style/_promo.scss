@@ -12,14 +12,15 @@
 		height: auto;
 	}
 	&__title {
-		font-family: "Roboto-Black", sans-serif;
+		font-family: "Roboto-Regular", sans-serif;
+		letter-spacing: 1px;
 		font-size: 64px;
 		color: white;
 		line-height: 80px;
 	}
 	&__item {
 		margin-top: 49px;
-		font-family: "SpaceGrotesk-Bold";
+		font-family: "SpaceGrotesk-Regular", sans-serif;
 		font-size: 32px;
 		color: white;
 	}
@@ -29,7 +30,8 @@
 		background-color: #f89f73;
 		color: #fff;
 		font-size: 30px;
-		font-family: "Roboto-Medium", sans-serif;
+		font-family: "Roboto-Regular", sans-serif;
+		letter-spacing: 0.5px;
 		padding: 22px 87px;
 		border: none;
 		text-decoration: none;
@@ -44,20 +46,21 @@
 
 @media (max-width: 1920px) {
 	.promo {
-		height: 80vh;
+		padding: 275px 0 115px 0;
+		height: 60vh;
 		&__wrapper {
 			width: 677px;
 		}
 		&__title {
-			font-size: 50px;
-			line-height: 62px;
+			font-size: 47px;
+			line-height: 60px;
 		}
 		&__item {
-			margin-top: 43px;
+			margin-top: 35px;
 			font-size: 26px;
 		}
 		&__btn {
-			margin-top: 67px;
+			margin-top: 52px;
 			font-size: 22px;
 			padding: 14px 60px;
 			border-radius: 9px;
@@ -186,4 +189,3 @@
 		}
 	}
 }
-

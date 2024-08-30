@@ -15,9 +15,9 @@
 	}
 	&__title {
 		color: #66605d;
-		font-family: "Roboto-Black", sans-serif;
 		font-size: 64px;
-		line-height: auto;
+		font-family: "Roboto-Regular", sans-serif;
+		letter-spacing: 1px;
 	}
 	&__text-first,
 	&__text-second {
@@ -45,16 +45,16 @@
 			margin-left: 120px;
 		}
 		&__title {
-			font-size: 50px;
+			font-size: 47px;
 		}
 		&__text-first,
 		&__text-second {
-			margin-top: 50px;
+			margin-top: 30px;
 			font-size: 16px;
 			line-height: 30px;
 		}
 		&__text-second {
-			margin-top: 30px;
+			margin-top: 20px;
 		}
 	}
 }

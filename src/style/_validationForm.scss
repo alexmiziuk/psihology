@@ -1,0 +1,36 @@
+input.placeholder-hidden::placeholder,
+textarea.placeholder-hidden::placeholder {
+	color: transparent;
+}
+.error {
+	font-family: Poppins-Regular, sans-serif;
+	color: red;
+	font-size: 11px;
+	right: 0;
+	position: absolute;
+	&-name {
+		top: 67px;
+	}
+	&-surname {
+		top: 67px;
+	}
+	&-mail {
+		top: 67px;
+	}
+	&-telephone {
+		top: 67px;
+	}
+	&-message {
+		top: 188px;
+	}
+	&-checkbox {
+		top: 73px;
+		left: 153px;
+	}
+}
+.invalid {
+	border: 1px solid red;
+}
+.hide {
+	display: none;
+}

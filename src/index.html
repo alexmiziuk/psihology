@@ -377,6 +377,140 @@
 				</div>
 			</div>
 		</section>
+		<section class="books">
+			<div class="container">
+				<h2 class="books__title">Moje knjige</h2>
+				<div class="books__wrapper">
+					<div class="books__book">
+						<img src="./img/image/image-iskreno-o-maških.png" alt="#" class="books__book-img">
+						<div class="books__book-block">
+							<p class="books__book-about">Ta knjiga je ustvarjena za izboljšanje partnerskih in družinskih
+								odnosov, saj prav ti določajo zadovoljstvo v družini. Iskreno odpiramo vrata v moški svet, da
+								vam pomagamo bolje razumeti svoje partnerje in sinove ter vzpostaviti z njimi globlje vezi.</p>
+							<a href="#" class="books__book-link">Kupiti</a>
+						</div>
+					</div>
+					<div class="books__book">
+						<img src="./img/image/isckreno-audio.png" alt="#" class="books__book-img">
+						<div class="books__book-block">
+							<p class="books__book-about">
+								<span>
+									“Iskreno o moških”
+								</span> je bila pretvorjena v zvočno knjigo za vaše udobje, če raje poslušate.
+							</p>
+							<a href="#" class="books__book-link">Kupiti</a>
+						</div>
+					</div>
+					<div class="books__book">
+						<img src="./img/image/image-the-man-al.png" alt="#" class="books__book-img">
+						<div class="books__book-block">
+							<p class="books__book-about">
+								These new insights about men will allow you to more easily understand your husband and sons and
+								to connect more deeply with them. You will be able to better recognize their needs and desires,
+								which will help create more harmonious and trusting relationships.
+							</p>
+							<a href="#" class="books__book-link">Kupiti</a>
+						</div>
+					</div>
+					<div class="books__book">
+						<img src="./img/image/Manual-image-sound.png" alt="#" class="books__book-img">
+						<div class="books__book-block">
+							<p class="books__book-about">
+								<span>“The Man-al”</span> has been converted into an audiobook for your convenience, if you
+								prefer listening.
+							</p>
+							<a href="#" class="books__book-link">Kupiti</a>
+						</div>
+					</div>
+					<div class="books__book">
+						<img src="./img/image/image-ženske-mojega-živlenja.png" alt="#" class="books__book-img">
+						<div class="books__book-block">
+							<p class="books__book-about">
+								Ta knjiga bo izboljšala vaše življenje, moški, in življenje vaših partneric ter celotne družine,
+								saj ponuja nasvete za izboljšanje odnosov. Pomagala vam bo posodobiti zastarela prepričanja in
+								bolje razumeti svoje bližnje.
+							</p>
+							<a href="#" class="books__book-link">Kupiti</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="contacts">
+			<div class="divider"></div>
+			<div class="container">
+				<h2 class="contacts__title">Kontakte
+				</h2>
+				<div class="contacts__wrapper">
+					<div class="contacts__google-map">
+						<iframe
+							src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2790.2866611413465!2d14.876549373975404!3d45.624977322700246!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4764f1fce2a09641%3A0x23f1a4fc642f9d85!2sUl.%20Brigade%20Moris%2012%2C%201330%20Ko%C4%8Devje!5e0!3m2!1sru!2ssi!4v1724924451842!5m2!1sru!2ssi"
+							width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+							referrerpolicy="no-referrer-when-downgrade">
+						</iframe>
+					</div>
+					<div class="contacts__info">
+						<p class="contacts__info-item">
+							<span class="contacts__info-title">Lahko pridem k vam ali pa vi pridete k meni</span>
+							<span class="contacts__info-text">Za posvetovanje me kontaktirajte prek naše spletne obrazca</span>
+						</p>
+						<form action="#" class="contacts__form" id="contactForm" method="post">
+							<div class="contacts__wrapper-name-surname">
+								<div class="contacts__wrapper-name">
+									<label for="name">Ime</label>
+									<input type="text" id="name" class="contacts__name" placeholder="Matej">
+									<div class="error error-name hide">Ime je obvezno</div>
+								</div>
+								<div class="contacts__wrapper-surname">
+									<label for="surname">Priimek</label>
+									<input type="text" id="surname" class="contacts__surname" placeholder="Novak">
+									<div class="error error-surname hide">Priimek je obvezen</div>
+								</div>
+							</div>
+							<div class="contacts__wrapper-email-telephone">
+								<div class="contacts__wrapper-email">
+									<label for="email">E-naslov</label>
+									<input type="email" id="email" class="contacts__email" placeholder="novak@gmail.com">
+									<div class="error error-mail hide">E-naslov je obvezen</div>
+								</div>
+								<div class="contacts__wrapper-telephone">
+									<label for="telephone">Telefon</label>
+									<input type="text" id="telephone" class="contacts__telephone" placeholder="+ 38XXXXXXXX">
+									<div class="error error-telephone hide">Telefon je obvezen</div>
+								</div>
+							</div>
+							<div class="contacts__wrapper-message">
+								<label for="message">Sporočilo</label>
+								<textarea id="message" class="contacts__message"></textarea>
+								<div class="error error-message hide">Sporočilo je obvezno</div>
+							</div>
+							<div class="contacts__wrapper-privet-button">
+								<div class="contacts__private">
+									<input type="checkbox" id="checkbox" class="contacts__checkbox">
+									<label for="checkbox" class="contacts__checkbox-text">
+										S pošiljanjem se strinjate z <br> našimi
+										<a href="#">Pogoji</a> in
+										<a href="#">Politiko Zasebnosti</a>
+									</label>
+									<div class="error error-checkbox hide">Potrditveno polje je obvezno</div>
+								</div>
+								<button type="submit" formnovalidate class="contacts__button">Pošlji</button>
+							</div>
+							<div class="google-spin-wrapper">
+								<div class="google-spin"></div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+			<div class="modal-result" id="modalResult">
+				<button class="modal-result__btn-close" id="modalCloseBtn">
+					<img src="./icons/cross-button.png" alt="cross button" class="modal-result__icon-close">
+				</button>
+				<div class="modal-result__container">
+				</div>
+			</div>
+		</section>
 	</main>
 </body>
 

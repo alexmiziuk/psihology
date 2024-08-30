@@ -11,9 +11,10 @@
 	&__title,
 	&__title-mobile {
 		color: #66605d;
-		font-family: "Roboto-Black", sans-serif;
+		font-family: "Roboto-Regular", sans-serif;
 		font-size: 64px;
 		line-height: auto;
+		letter-spacing: 0.5px;
 	}
 	&__title-mobile {
 		display: none;
@@ -26,7 +27,7 @@
 		font-family: "Roboto-Regular", sans-serif;
 		font-size: 44px;
 		line-height: 68px;
-		color: #555151;
+		color: #050505;
 	}
 	&__item-span {
 		position: relative;
@@ -61,7 +62,8 @@
 		background-color: #f89f73;
 		color: #fff;
 		font-size: 30px;
-		font-family: "Roboto-Medium", sans-serif;
+		font-family: "Roboto-Regular", sans-serif;
+		letter-spacing: 0.5px;
 		padding: 22px 48.5px;
 		border: none;
 		text-decoration: none;
@@ -121,15 +123,15 @@
 			width: 50%;
 		}
 		&__title {
-			font-size: 50px;
+			font-size: 47px;
 		}
 		&__wrapper-text {
 			margin-top: 30px;
 			width: 100%;
 		}
 		&__item {
-			font-size: 32px;
-			line-height: 48px;
+			font-size: 31px;
+			line-height: 47px;
 		}
 		&__item-span {
 			font-size: 30px;
@@ -142,7 +144,7 @@
 		&__text {
 			margin-top: 30px;
 			font-size: 16px;
-			line-height: 28px;
+			line-height: 30px;
 			max-width: 490px;
 		}
 		&__button {
@@ -156,8 +158,8 @@
 			grid-gap: 30px 30px;
 		}
 		&__card-img {
-			width: 70px;
-			height: 70px;
+			width: 60px;
+			height: 60px;
 		}
 		&__card-title {
 			margin-top: 18px;

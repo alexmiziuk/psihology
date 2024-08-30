@@ -18,17 +18,17 @@ a {
 .divider {
 	position: absolute;
 	width: 827px;
-	height: 1px;
+	height: 0.5px;
 	background-color: #000000;
 	left: 0;
 	right: 0;
 	margin: 0 auto;
 	top: 0;	
 }
-
 ul {
 	list-style-type: none; /* Убираем маркеры */
 }
+
 @media (max-width: 1920px) {
 	.divider {
 		width: 600px;
@@ -70,4 +70,8 @@ ul {
 @import "style/reviews";
 @import "style/process";
 @import "style/interview";
+@import "style/books";
+@import "style/contacts";
+@import "style/validationForm";
+@import "style/modalResult";
 

@@ -13,9 +13,11 @@
 		&-img {
 			width: 135px;
 			height: 75px;
+		/* 	display: none; */
 		}
 		&-name {
 			position: absolute;
+			/* display: none; */
 			top: 2px;
 			left: 129px;
 			font-size: 46px;
@@ -24,6 +26,7 @@
 		}
 		&-specialist {
 			position: absolute;
+			/* display: none; */
 			top: 51px;
 			left: 95px;
 			font-size: 32px;
