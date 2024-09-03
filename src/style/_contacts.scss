@@ -67,6 +67,11 @@
 		max-width: 307px;
 		width: 100%;
 	}
+
+	&__wrapper-surname,
+	&__wrapper-telephone {
+		margin-left: 20px;
+	}
 	&__name,
 	&__surname,
 	&__email,
@@ -86,11 +91,12 @@
 		&:focus {
 			outline: none;
 		}
-		&::-webkit-input-placeholder { /* Chrome, Safari, Opera */
+		&::-webkit-input-placeholder {
+			/* Chrome, Safari, Opera */
 			color: #abaaaa;
 			font-family: "Roboto-Regular", sans-serif;
 			font-size: 18px;
-	  }
+		}
 	}
 	&__wrapper-message {
 		position: relative;
@@ -112,6 +118,10 @@
 		display: inline-block;
 		width: 100%;
 		height: 165px;
+		font-family: "Roboto-Regular", sans-serif;
+		font-size: 18px;
+		line-height: 24px;
+		color: #463f3d;
 		box-sizing: border-box;
 		border-radius: 7px;
 		border: solid 1px #abaaaa;
@@ -128,6 +138,7 @@
 	}
 	&__checkbox-text {
 		display: inline-block;
+		position: relative;
 		font-size: 17px;
 		line-height: 20px;
 		font-family: "Roboto-Regular", sans-serif;
@@ -139,8 +150,10 @@
 		}
 	}
 	&__button {
+		position: relative;
 		display: flex;
 		justify-content: center;
+		margin-left: 20px;
 		align-items: center;
 		width: 293px;
 		height: 68px;
@@ -154,6 +167,9 @@
 		transition: all ease 0.3s;
 		letter-spacing: 0.5px;
 		cursor: pointer;
+		&--text-transparent {
+			color: rgba(255, 255, 255, 0);
+		}
 		&:hover {
 			background-color: #e68e60;
 		}
@@ -165,6 +181,302 @@
 		max-width: 292px;
 		width: 100%;
 		border-radius: 7px;
+	}
+}
+
+@media (max-width: 1920px) {
+	.contacts {
+		&__title {
+			font-size: 47px;
+		}
+		&__google-map {
+			height: 552px;
+		}
+		&__info {
+			max-width: 587px;
+			padding-left: 80px;
+		}
+		&__info-title {
+			font-size: 28px;
+			line-height: 40px;
+		}
+		&__info-text {
+			margin-top: 10px;
+			display: inline-block;
+			font-family: "SpaceGrotesk-Regular", sans-serif;
+			font-size: 18px;
+			line-height: 30px;
+			color: #463f3d;
+		}
+		&__form {
+			max-width: 641px;
+			margin-top: 20px;
+		}
+		&__wrapper-name-surname,
+		&__wrapper-email-telephone {
+			display: flex;
+			justify-content: space-between;
+		}
+		&__wrapper-name-surname,
+		&__wrapper-email-telephone {
+			label {
+				margin-left: 12px;
+				font-size: 13px;
+				line-height: 14px;
+			}
+		}
+		&__wrapper-message {
+			label {
+				margin-left: 12px;
+				font-size: 13px;
+				line-height: 14px;
+			}
+		}
+		&__wrapper-name,
+		&__wrapper-surname,
+		&__wrapper-email,
+		&__wrapper-telephone {
+			max-width: 320px;
+		}
+		&__name,
+		&__surname,
+		&__email,
+		&__telephone {
+			padding: 12px 15px;
+			font-size: 16px;
+			line-height: 22px;
+			&:focus {
+				outline: none;
+			}
+			&::-webkit-input-placeholder {
+				/* Chrome, Safari, Opera */
+				color: #abaaaa;
+				font-family: "Roboto-Regular", sans-serif;
+				font-size: 16px;
+			}
+		}
+
+		&__checkbox-text {
+			font-size: 16px;
+			line-height: 24px;
+		}
+		&__button {
+			width: 160px;
+			height: 52px;
+			font-size: 22px;
+			line-height: 22px;
+			border-radius: 9px;
+			margin: 0 auto;
+		}
+		&__private {
+			margin-right: 20px;
+			max-width: 280px;
+		}
+	}
+}
+
+@media (max-width: 1300px) {
+	.contacts {
+		&__info {
+			max-width: 488px;
+		}
+		&__google-map {
+			height: 576px;
+		}
+	}
+}
+
+@media (max-width: 1200px) {
+	.contacts {
+		&__info {
+			max-width: 488px;
+		}
+		&__google-map {
+			height: 586px;
+		}
+		&__button {
+			font-size: 20px;
+			border-radius: 7px;
+			width: 133px;
+			height: 45px;
+		}
+	}
+}
+
+@media (max-width: 1100px) {
+	.contacts {
+		&__private {
+			max-width: auto;
+			justify-content: flex-start;
+			margin-right: 0;
+		}
+		&__checkbox-text {
+			margin-left: 12px;
+			br {
+				display: none;
+			}
+		}
+
+		&__wrapper-privet-button {
+			display: block;
+			align-items: center;
+			margin-top: 30px;
+		}
+		&__button {
+			margin: 0;
+			margin-top: 20px;
+		}
+		&__google-map {
+			height: 646px;
+			width: 825px;
+		}
+	}
+}
+
+@media (max-width: 1024px) {
+	.contacts {
+		&__info {
+			max-width: 488px;
+		}
+	}
+}
+
+@media (max-width: 992px) {
+	.contacts {
+		&__google-map {
+			height: 732px;
+			width: 674px;
+		}
+		&__form {
+			margin-top: 12px;
+		}
+		&__title {
+			font-size: 37px;
+		}
+		&__info {
+			max-width: 488px;
+		}
+		&__info-title {
+			font-size: 22px;
+			line-height: 32px;
+		}
+		&__info-text {
+			margin-top: 10px;
+			font-size: 14px;
+			line-height: 26px;
+		}
+		&__wrapper-name-surname,
+		&__wrapper-email-telephone {
+			flex-direction: column;
+			height: 128px;
+			max-width: 100%;
+			label {
+				margin-left: 10px;
+				font-size: 10px;
+				line-height: 14px;
+			}
+		}
+		&__wrapper-name,
+		&__wrapper-surname,
+		&__wrapper-email,
+		&__wrapper-telephone {
+			max-width: 100%;
+		}
+		&__wrapper-surname,
+		&__wrapper-telephone {
+			margin-left: 0;
+		}
+		&__wrapper-message {
+			label {
+				margin-left: 10px;
+				font-size: 10px;
+				line-height: 14px;
+			}
+		}
+		&__name,
+		&__surname,
+		&__email,
+		&__telephone {
+			padding: 10px 13px;
+			min-height: 42px;
+			font-size: 14px;
+			line-height: 20px;
+			&:focus {
+				outline: none;
+			}
+			&::-webkit-input-placeholder {
+				/* Chrome, Safari, Opera */
+				color: #abaaaa;
+				font-family: "Roboto-Regular", sans-serif;
+				font-size: 14px;
+			}
+		}
+		&__checkbox-text {
+			font-size: 14px;
+			line-height: 22px;
+		}
+		&__wrapper-email-telephone,
+		&__wrapper-message {
+			margin-top: 6px;
+		}
+		&__wrapper-privet-button {
+			margin-top: 22px;
+		}
+		&__button {
+			margin-top: 17px;
+		}
+	}
+}
+
+@media (max-width: 768px) {
+	.contacts {
+		padding: 80px 0 80px 0;
+		&__info {
+			padding-left: 40px;
+		}
+		&__title {
+			font-size: 30px;
+		}
+	}
+}
+
+@media (max-width: 767px) {
+	.contacts {
+		&__google-map {
+			width: 805px;
+		}
+	}
+}
+
+@media (max-width: 689px) {
+	.contacts {
+		&__google-map {
+			width: 100%;
+			height: 400px;
+		}
+		&__wrapper {
+			flex-direction: column;
+			max-width: 100% !important;
+			margin-top: 73px;
+		}
+		&__info {
+			padding-left: 0;
+			margin: 0 auto;
+			margin-top: 40px;
+		}
+		&__info-item {
+			text-align: center;
+		}
+		&__info-title {
+			line-height: 29px;
+		}
+		&__checkbox-text {
+			max-width: 100%;
+		}
+		&__button {
+			margin: 0 auto;
+			margin-top: 17px;
+		}
 	}
 }
 

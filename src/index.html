@@ -451,7 +451,7 @@
 					</div>
 					<div class="contacts__info">
 						<p class="contacts__info-item">
-							<span class="contacts__info-title">Lahko pridem k vam ali pa vi pridete k meni</span>
+							<span class="contacts__info-title">Lahko pridem k vam <br> ali pa vi pridete k meni</span>
 							<span class="contacts__info-text">Za posvetovanje me kontaktirajte prek naše spletne obrazca</span>
 						</p>
 						<form action="#" class="contacts__form" id="contactForm" method="post">
@@ -491,13 +491,15 @@
 										S pošiljanjem se strinjate z <br> našimi
 										<a href="#">Pogoji</a> in
 										<a href="#">Politiko Zasebnosti</a>
+										<div class="error error-checkbox hide">Potrditveno polje je obvezno</div>
 									</label>
-									<div class="error error-checkbox hide">Potrditveno polje je obvezno</div>
 								</div>
-								<button type="submit" formnovalidate class="contacts__button">Pošlji</button>
-							</div>
-							<div class="google-spin-wrapper">
-								<div class="google-spin"></div>
+								<button type="submit" formnovalidate class="contacts__button">Pošlji
+									<div class="dbl-spinner-wrapper">
+										<div class="dbl-spinner"></div>
+										<div class="dbl-spinner dbl-spinner--2"></div>
+									</div>
+								</button>
 							</div>
 						</form>
 					</div>

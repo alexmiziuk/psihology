@@ -1,6 +1,6 @@
 
 import { showModalResult, modalContentSuccess, modalContentError } from './modalResult.js';
-/* import { spinnerShow, spinnerHide } from './spinner.js';  */
+import { spinnerShow, spinnerHide } from './spinner.js';
 
 document.getElementById('contactForm').addEventListener('submit', function (e) {
 	e.preventDefault(); // предотвращает перезагрузку страницы при отправке формы
@@ -20,11 +20,11 @@ document.getElementById('contactForm').addEventListener('submit', function (e) {
 	formData.append('message', message);
 	formData.append('checkbox', checkbox);
 
-	if (!name || !surname || !email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)|| !telephone || !/^\+\d{1,15}$/.test(telephone) || !message || !checkbox) { 
+	if (!name || !surname || !email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) || !telephone || !/^\+\d{1,15}$/.test(telephone) || !message || !checkbox) {
 		return;
 	}
 
-/* 	spinnerShow(); */
+	spinnerShow();
 
 	fetch('mailer/smart.php', {
 		method: 'POST',
@@ -38,12 +38,12 @@ document.getElementById('contactForm').addEventListener('submit', function (e) {
 			}
 		})
 		.then(data => {
-			
+
 			// Обработка ответа
 			console.log('Message sent successfully!');
 			document.getElementById('contactForm').reset(); // Сбрасывает форму
-			
-			/* spinnerHide(); */
+
+			spinnerHide();
 			showModalResult();
 			modalContentSuccess();
 		})
@@ -51,8 +51,8 @@ document.getElementById('contactForm').addEventListener('submit', function (e) {
 
 			document.getElementById('contactForm').reset(); // Сбрасывает форму
 			console.error('Message sent failed:', error);
-			
-			/* spinnerHide(); */
+
+			spinnerHide();
 			showModalResult();
 			modalContentError();
 		});
