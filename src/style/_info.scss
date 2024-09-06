@@ -4,14 +4,6 @@
 	.nav__logo-name,
 	.nav__logo-specialist {
 		color: #ffffff;
-		/* left: 90px; */
-	}
-	.nav__logo-img {
-		/* height: 70px;
-		width: 75px; */
-	}
-	.nav__logo-specialist {
-		/* top: 40px */
 	}
 	.nav__logo-wrapper,
 	&__contacts {
@@ -254,21 +246,24 @@
 
 @media (max-width: 768px) {
 	.info {
+		padding: 80px 0 80px 0;
 		&__wrapper {
 			max-width: 688px;
 			margin: 0 auto;
 		}
 		&__menu {
 			margin-top: 40px;
+			display: flex;
+			align-items: flex-end;
+			flex-direction: column;
+			width: 100%;
+		}
+		&__menu-item {
+			width: 290px;
 		}
 	}
 }
 
-@media (max-width: 768px) {
-	.info { 
-		padding: 80px 0 80px 0;
-	}
-}
 @media (max-width: 607px) {
 	.info {
 		.nav__logo-wrapper {
@@ -277,6 +272,16 @@
 		}
 		&__contacts {
 			margin-top: 40px;
+		}
+		&__menu {
+			margin-top: 40px;
+			display: flex;
+			align-items: flex-start;
+			flex-direction: column;
+			width: 100%;
+		}
+		&__menu-item {
+			width: 290px;
 		}
 	}
 }
