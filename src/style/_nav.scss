@@ -68,6 +68,27 @@
 			}
 			&--dropdown {
 				position: relative;
+				&::before {
+					content: "";
+					position: absolute;
+					top: 52%;
+					transform: translateY(-50%);
+					right: -20px;
+					width: 8px;
+					height: 8px;
+					border: solid rgba(82, 79, 78, 0) 8px;
+					background-image: url(./icons/triangle.png);
+					background-repeat: no-repeat;
+					background-position: center;
+					background-size: 100%;
+					transition: transform 0.6s ease;
+				}
+				&:hover {
+					&::before {
+						background-image: url(./icons/triangle-brown.png);
+						transform: translateY(-50%) rotate(180deg);
+					}
+				}
 			}
 			.submenu-my-expertise,
 			.submenu-my-works,
@@ -122,6 +143,7 @@
 						}
 					}
 				}
+			
 				.submenu-wrapper-works {
 					width: 118px;
 					a {
@@ -294,9 +316,7 @@
 				}
 			}
 		}
-		
 	}
-	
 }
 
 @media (max-width: 1200px) {
