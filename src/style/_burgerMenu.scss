@@ -20,6 +20,7 @@
 	height: 100%;
 	background-color: #b9b7b7;
 	z-index: 100;
+	overflow-y: auto;
 	&__container {
 		display: flex;
 		flex-direction: column;
@@ -38,16 +39,12 @@
 		text-decoration: none;
 		color: #524f4e;
 		transition: all 0.3s ease-in-out;
-	/* 	&:hover {
-			color: rgba(139, 35, 35, 0.6);
-			font-family: "Poppins-Black", sans-serif;
-			
-		} */
 		&.burger-menu__item--active {
 			color: white;
 		}
 	}
 }
+
 @media (max-width: 576px) {
 	.burger-menu {
 		width: 100%;
@@ -60,3 +57,15 @@
 		}
 	}
 }
+
+@media (orientation: landscape) {
+	.burger-menu {
+		&__item:first-child { 
+			padding-top: 40px!important;
+		}
+		&__item:last-child {
+			padding-bottom: 30px!important;
+		}
+	 
+	}
+ }

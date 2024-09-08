@@ -13,7 +13,6 @@
 	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 	border-radius: 8px;
 	transition: all ease 0.6s;
-	
 	&__btn-close {
 		position: absolute;
 		border: none;
@@ -27,18 +26,18 @@
 		}
 		&:active {
 			box-shadow: 2px -0.9px 4px rgba(0, 0, 0, 0.3);
-		 }
+		}
 	}
 	&__icon-close {
 		width: 11.38px;
 		height: 11.38px;
 		&:active {
 			transform: scale(0.75);
-		 }
+		}
 	}
 
 	&__title {
-		/* color: $text-color-primary; */
+		font-family: "Roboto-Regular", sans-serif;
 		font-size: 34px;
 		font-weight: 400;
 		line-height: 120%;
@@ -47,7 +46,9 @@
 		margin-bottom: 40px;
 	}
 	&__text {
-		/* @include text($text-color-primary); */
+		font-family: "Roboto-Regular", sans-serif;
+		font-size: 18px;
+		line-height: 30px;
 		color: #2a2727;
 		margin-bottom: 10px;
 		text-align: center;
@@ -65,7 +66,8 @@
 			font-size: 28px;
 		}
 		&__text {
-		/* 	@include text-768px(); */
+			font-size: 16px;
+			line-height: 24px;
 		}
 	}
 }

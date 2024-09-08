@@ -6,6 +6,7 @@
 	background-size: cover;
 	&__wrapper {
 		padding: 89px 79px 82px 132px;
+		border-radius: 14px;
 		box-sizing: border-box;
 		background-color: rgb(131, 130, 129, 40%);
 		width: 719px;
@@ -40,7 +41,7 @@
 		&__wrapper {
 			padding: 75px 74px 68px 133px;
 			width: 627px;
-			border-radius: 14px;
+			border-radius: 12px;
 		}
 		&__title {
 			font-size: 47px;
@@ -98,6 +99,7 @@
 		&__wrapper {
 			padding: 57px 28px 54px 60px;
 			width: 451px;
+			border-radius: 10px;
 		}
 	}
 }
@@ -146,6 +148,7 @@
 		&__wrapper {
 			padding: 48px 45px 45px 55px;
 			width: 388px;
+			border-radius: 9px;
 		}
 		&__title {
 			font-size: 27px;

@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 		menuItem.addEventListener('mouseenter', function () {
 			clearTimeout(leaveTimeout); // Очищаем таймер ухода
-			const submenu = this.querySelector(`.submenu-${itemId}`);
+			const submenu = this.querySelector(`.submenu__${itemId}`);
 			submenu.style.display = 'block';
 			submenu.style.transition = 'all 0.5s ease';
 			enterTimeout = setTimeout(() => {
@@ -69,7 +69,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 		menuItem.addEventListener('mouseleave', function () {
 			clearTimeout(enterTimeout); // Очищаем таймер входа
-			const submenu = this.querySelector(`.submenu-${itemId}`);
+			const submenu = this.querySelector(`.submenu__${itemId}`);
 
 			leaveTimeout = setTimeout(() => {
 				submenu.style.opacity = '0';
@@ -84,7 +84,7 @@ document.addEventListener('DOMContentLoaded', function () {
 		menuItem.addEventListener('click', function (event) {
 			event.stopPropagation();
 			clearTimeout(leaveTimeout); // Очищаем таймер ухода на случай быстрого клика
-			const submenu = this.querySelector(`.submenu-${itemId}`);
+			const submenu = this.querySelector(`.submenu__${itemId}`);
 			submenu.style.display = 'block';
 			submenu.style.transition = 'all 0.3s ease'; // Уменьшаем время перехода
 			submenu.style.opacity = '1';
