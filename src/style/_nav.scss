@@ -107,6 +107,7 @@
 		left: 50%;
 		transform: translateX(-50%);
 		z-index: 1;
+		width: auto;
 	}
 	&__wrapper-expertise,
 	&__wrapper-works,
@@ -116,9 +117,12 @@
 		margin-top: 20px;
 		background-color: #3e3b37;
 		padding: 29px 40px;
-		max-width: 137px;
-		width: 100%;
+		width: 112px;
 		line-height: 0;
+	}
+	&__my-expertise {
+		left: 50%;
+		transform: translateX(-50%);
 	}
 	&__item {
 		position: relative;
@@ -260,16 +264,8 @@
 		}
 	}
 }
+
 @media (max-width: 1200px) {
-	.nav__logo-name {
-		font-size: 34px;
-		left: 90px;
-		top: 0px;
-	}
-	.nav__logo-specialist {
-		font-size: 24px;
-		top: 35px;
-	}
 	.nav {
 		&__menu {
 			font-size: 14px;
@@ -283,13 +279,22 @@
 				}
 			}
 		}
+		&__logo-name {
+			font-size: 34px;
+			left: 90px;
+			top: 0px;
+		}
+		&__logo-specialist {
+			font-size: 24px;
+			top: 35px;
+		}
 	}
 	.submenu {
 		&__wrapper-expertise,
 		&__wrapper-works,
 		&__wrapper-contacts {
 			padding: 20px 20px;
-			width: 109px;
+			width: 97px;
 		}
 		&__item {
 			font-size: 14px;
@@ -328,29 +333,6 @@
 	.container {
 		width: 900px;
 	}
-	.nav__menu {
-		font-size: 14px;
-		width: 480px;
-	}
-	.nav__logo-wrapper {
-		position: relative;
-		width: 244px;
-		height: 54px;
-	}
-	.nav__logo-img {
-		width: 57px;
-		height: 52px;
-	}
-	.nav__logo-name {
-		font-size: 28px;
-		left: 67px;
-		top: 0px;
-	}
-	.nav__logo-specialist {
-		font-size: 21px;
-		top: 29px;
-		left: 67px;
-	}
 	.nav {
 		padding: 12px 0 0 0;
 		&__menu {
@@ -361,6 +343,25 @@
 					position: relative;
 				}
 			}
+		}
+		&__logo-wrapper {
+			position: relative;
+			width: 244px;
+			height: 54px;
+		}
+		&__logo-img {
+			width: 57px;
+			height: 52px;
+		}
+		&__logo-name {
+			font-size: 28px;
+			left: 67px;
+			top: 0px;
+		}
+		&__logo-specialist {
+			font-size: 21px;
+			top: 29px;
+			left: 67px;
 		}
 	}
 	.submenu {
@@ -386,6 +387,7 @@
 		}
 	}
 }
+
 @media (max-width: 924px) {
 	.container {
 		width: 97%;
@@ -419,7 +421,7 @@
 		}
 		&__contacts {
 			left: 50%;
-			transform: translateX(-77%);
+			transform: translateX(-67%);
 		}
 		&__item--center,
 		&__item--right {
@@ -429,15 +431,16 @@
 		}
 	}
 }
+
 @media (max-width: 818px) {
-	.nav__logo-name {
-		left: 64px;
-		top: 0px;
-	}
-	.nav__logo-specialist {
-		font-size: 20px;
-	}
 	.nav {
+		&__logo-name {
+			left: 64px;
+			top: 0px;
+		}
+		&__logo-specialist {
+			font-size: 20px;
+		}
 		&__menu {
 			font-size: 13px;
 			width: 465px;
