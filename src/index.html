@@ -20,7 +20,7 @@
 	<meta name="msapplication-TileColor" content="#ffffff">
 	<meta name="msapplication-TileImage" content="./icons/favicon/ms-icon-144x144.png">
 	<meta name="theme-color" content="#ffffff">
-	
+
 	<!-- Primary Meta Tags -->
 	<title>Dobrodošli v svet harmonije in duševnega ravnovesja</title>
 	<meta name="title" content="Dobrodošli v svet harmonije in duševnega ravnovesja" />
@@ -543,30 +543,30 @@
 							<div class="contacts__wrapper-name-surname">
 								<div class="contacts__wrapper-name">
 									<label for="name">Ime</label>
-									<input type="text" id="name" class="contacts__name" placeholder="Matej">
+									<input type="text" maxlength="50" id="name" class="contacts__name" placeholder="Matej">
 									<div class="error error-name hide">Ime je obvezno</div>
 								</div>
 								<div class="contacts__wrapper-surname">
 									<label for="surname">Priimek</label>
-									<input type="text" id="surname" class="contacts__surname" placeholder="Novak">
+									<input type="text" maxlength="50" id="surname" class="contacts__surname" placeholder="Novak">
 									<div class="error error-surname hide">Priimek je obvezen</div>
 								</div>
 							</div>
 							<div class="contacts__wrapper-email-telephone">
 								<div class="contacts__wrapper-email">
 									<label for="email">E-naslov</label>
-									<input type="email" id="email" class="contacts__email" placeholder="novak@gmail.com">
+									<input type="email" maxlength="254" id="email" class="contacts__email" placeholder="novak@gmail.com">
 									<div class="error error-mail hide">E-naslov je obvezen</div>
 								</div>
 								<div class="contacts__wrapper-telephone">
 									<label for="telephone">Telefon</label>
-									<input type="text" id="telephone" class="contacts__telephone" placeholder="+ 38XXXXXXXX">
+									<input type="tel" maxlength="20" id="telephone" class="contacts__telephone" placeholder="+ 38XXXXXXXX">
 									<div class="error error-telephone hide">Telefon je obvezen</div>
 								</div>
 							</div>
 							<div class="contacts__wrapper-message">
 								<label for="message">Sporočilo</label>
-								<textarea id="message" class="contacts__message"></textarea>
+								<textarea style="resize: none;" maxlength="500" id="message" class="contacts__message"></textarea>
 								<div class="error error-message hide">Sporočilo je obvezno</div>
 							</div>
 							<div class="contacts__wrapper-privet-button">
