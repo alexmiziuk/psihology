@@ -117,7 +117,7 @@
 		margin-top: 20px;
 		background-color: #3e3b37;
 		padding: 29px 40px;
-		width: 112px;
+		width: 138px;
 		line-height: 0;
 	}
 	&__my-expertise {
@@ -156,10 +156,10 @@
 		}
 	}
 	&__wrapper-works {
-		width: 118px;
+		width: 120px;
 	}
 	&__wrapper-contacts {
-		width: 104px;
+		width: 100px;
 	}
 	&__item--center,
 	&__item--right {
@@ -187,6 +187,9 @@
 	&__item--right {
 		&::before {
 			width: 100%;
+		}
+		&::after {
+			width: 74%;
 		}
 	}
 }
@@ -234,6 +237,7 @@
 		&__wrapper-works,
 		&__wrapper-contacts {
 			padding: 23px 23px;
+			width: 112px;
 		}
 		&__item {
 			display: inline-block;
