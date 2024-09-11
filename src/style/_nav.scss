@@ -193,6 +193,15 @@
 		}
 	}
 }
+.active {
+	position: relative;
+	&::before {
+		position: absolute;
+		content: "";
+		background-image: url(./icons/triangle-brown.png);
+		transform: translateY(-50%) rotate(180deg);
+	}
+}
 
 @media (max-width: 1920px) {
 	.container {
