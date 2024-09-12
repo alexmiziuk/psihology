@@ -11,27 +11,30 @@ document.addEventListener('DOMContentLoaded', function () {
 	const body = document.querySelector("body");
 
 
+	function hiddenElement() {
+		const elements = [
+			 submenuWrapperExpertise,
+			 submenuWrapperWorks,
+			 submenuWrapperContacts
+		];
+  
+		elements.forEach(element => {
+			 element.style.display = 'none';
+			 element.style.visibility = 'hidden';
+			 element.style.zIndex = '-1';
+			 element.style.opacity = '0';
+			 element.style.transition = 'all 0.3s ease';
+		});
+  }
+
 	body.addEventListener("click", function (event) {
 		event.stopPropagation();
 		navMenuItemsDropdowns.forEach(navMenuItemDropdown => {
 			navMenuItemDropdown.classList.remove('active');
 		});
-		submenuWrapperExpertise.style.display = 'none';
-		submenuWrapperWorks.style.display = 'none';
-		submenuWrapperContacts.style.display = 'none';
-		submenuWrapperExpertise.style.visibility = 'hidden';
-		submenuWrapperWorks.style.visibility = 'hidden';
-		submenuWrapperContacts.style.visibility = 'hidden';
-		submenuWrapperExpertise.style.zIndex = '-1';
-		submenuWrapperWorks.style.zIndex = '-1';
-		submenuWrapperContacts.style.zIndex = '-1';
-		submenuWrapperExpertise.style.opacity = '0';
-		submenuWrapperWorks.style.opacity = '0';
-		submenuWrapperContacts.style.opacity = '0';
-		submenuWrapperExpertise.style.transition = 'all 0.3s ease';
-		submenuWrapperWorks.style.transition = 'all 0.3s ease';
-		submenuWrapperContacts.style.transition = 'all 0.3s ease';
+		hiddenElement()
 	});
+
 
 	navMenuItems.forEach(navMenuItem => {
 		navMenuItem.addEventListener("click", function (event) {
@@ -46,21 +49,7 @@ document.addEventListener('DOMContentLoaded', function () {
 			if (submenuWrapperExpertise.style.display === 'block' ||
 				submenuWrapperWorks.style.display === 'block' ||
 				submenuWrapperContacts.style.display === 'block') {
-				submenuWrapperExpertise.style.transition = 'all 0.3s ease';
-				submenuWrapperWorks.style.transition = 'all 0.3s ease';
-				submenuWrapperContacts.style.transition = 'all 0.3s ease';
-				submenuWrapperExpertise.style.opacity = '0';
-				submenuWrapperWorks.style.opacity = '0';
-				submenuWrapperContacts.style.opacity = '0';
-				submenuWrapperExpertise.style.visibility = 'hidden';
-				submenuWrapperWorks.style.visibility = 'hidden';
-				submenuWrapperContacts.style.visibility = 'hidden';
-				submenuWrapperExpertise.style.zIndex = '-1';
-				submenuWrapperWorks.style.zIndex = '-1';
-				submenuWrapperContacts.style.zIndex = '-1';
-				submenuWrapperExpertise.style.display = 'none';
-				submenuWrapperWorks.style.display = 'none';
-				submenuWrapperContacts.style.display = 'none';
+				hiddenElement()
 			}
 		});
 	});
@@ -78,24 +67,17 @@ document.addEventListener('DOMContentLoaded', function () {
 			if (submenuWrapperExpertise.style.display === 'block' ||
 				submenuWrapperWorks.style.display === 'block' ||
 				submenuWrapperContacts.style.display === 'block') {
-				submenuWrapperExpertise.style.transition = 'all 0.3s ease';
-				submenuWrapperWorks.style.transition = 'all 0.3s ease';
-				submenuWrapperContacts.style.transition = 'all 0.3s ease';
-				submenuWrapperExpertise.style.opacity = '0';
-				submenuWrapperWorks.style.opacity = '0';
-				submenuWrapperContacts.style.opacity = '0';
-				submenuWrapperExpertise.style.visibility = 'hidden';
-				submenuWrapperWorks.style.visibility = 'hidden';
-				submenuWrapperContacts.style.visibility = 'hidden';
-				submenuWrapperExpertise.style.zIndex = '-1';
-				submenuWrapperWorks.style.zIndex = '-1';
-				submenuWrapperContacts.style.zIndex = '-1';
-				submenuWrapperExpertise.style.display = 'none';
-				submenuWrapperWorks.style.display = 'none';
-				submenuWrapperContacts.style.display = 'none';
+				hiddenElement()
 			}
 		});
 	});
+
+	function visibleElement(effect,  element) {
+		element.style.transition =  effect; // время перехода
+		element.style.opacity = '1';
+		element.style.visibility = 'visible';
+		element.style.zIndex = '1';
+	}
 
 	menuItems.forEach(itemId => {
 		const menuItem = document.getElementById(itemId);
@@ -106,11 +88,8 @@ document.addEventListener('DOMContentLoaded', function () {
 			clearTimeout(enterTimeout); // Очищаем таймер ухода на случай быстрого клика
 			const submenu = this.querySelector(`.submenu__${itemId}`);
 			submenu.style.display = 'block';
-			submenu.style.transition = 'all 0.3s ease'; // Уменьшаем время перехода
 			enterTimeout = setTimeout(() => {
-				submenu.style.opacity = '1';
-				submenu.style.visibility = 'visible';
-				submenu.style.zIndex = '1';
+				visibleElement('all 0.3s ease', submenu);
 				navMenuItemsDropdowns.forEach(navMenuItemDropdown => {
 					if (menuItem.id === navMenuItemDropdown.id) {
 						navMenuItemDropdown.classList.add('active');
@@ -122,14 +101,11 @@ document.addEventListener('DOMContentLoaded', function () {
 		});
 
 		menuItem.addEventListener('mouseenter', function () {
-			clearTimeout(leaveTimeout); // Очищаем таймер ухода
+			clearTimeout(enterTimeout); // Очищаем таймер ухода
 			const submenu = this.querySelector(`.submenu__${itemId}`);
 			submenu.style.display = 'block';
-			submenu.style.transition = 'all 0.5s ease';
 			enterTimeout = setTimeout(() => {
-				submenu.style.opacity = '1';
-				submenu.style.visibility = 'visible';
-				submenu.style.zIndex = '1';
+				visibleElement('all 0.5s ease', submenu);
 			}, 100); // Ожидание перед показом меню
 		});
 
