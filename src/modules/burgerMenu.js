@@ -45,7 +45,6 @@ export function toggleBurgerMenu() {
 
 	}
 
-
 	burgerLayer.addEventListener('click', () => {
 		burger.classList.remove('active-burger');
 		burgerLayer.classList.remove('burger-layer-active');
@@ -61,6 +60,3 @@ export function toggleBurgerMenu() {
 
 	handleMenuItemClick();
 }
-
-
-toggleBurgerMenu();

@@ -805,198 +805,6 @@ try {
 
 /***/ }),
 
-/***/ 7782:
-/***/ (function() {
-
-// Dropdown menu
-
-document.addEventListener('DOMContentLoaded', function () {
-  var menuItems = ['my-expertise', 'my-works', 'contacts'];
-  menuItems.forEach(function (itemId) {
-    var menuItem = document.getElementById(itemId);
-    var enterTimeout, leaveTimeout; // Таймеры для ховера и выхода
-
-    menuItem.addEventListener('mouseenter', function () {
-      clearTimeout(leaveTimeout); // Очищаем таймер ухода
-      var submenu = this.querySelector(".submenu__".concat(itemId));
-      submenu.style.display = 'block';
-      submenu.style.transition = 'all 0.5s ease';
-      enterTimeout = setTimeout(function () {
-        submenu.style.opacity = '1';
-        submenu.style.visibility = 'visible';
-        submenu.style.zIndex = '1';
-      }, 100); // Ожидание перед показом меню
-    });
-    menuItem.addEventListener('mouseleave', function () {
-      clearTimeout(enterTimeout); // Очищаем таймер входа
-      var submenu = this.querySelector(".submenu__".concat(itemId));
-      enterTimeout = setTimeout(function () {
-        submenu.style.opacity = '0';
-        submenu.style.visibility = 'hidden';
-        submenu.style.zIndex = '-1';
-        setTimeout(function () {
-          submenu.style.display = 'none';
-        }, 300); // Соответствует времени перехода
-      }, 100); // Ожидание перед скрытием меню
-    });
-    menuItem.addEventListener('click', function (event) {
-      event.stopPropagation();
-      clearTimeout(leaveTimeout); // Очищаем таймер ухода на случай быстрого клика
-      var submenu = this.querySelector(".submenu__".concat(itemId));
-      submenu.style.display = 'block';
-      submenu.style.transition = 'all 0.3s ease'; // Уменьшаем время перехода
-      submenu.style.opacity = '1';
-      submenu.style.visibility = 'visible';
-      submenu.style.zIndex = '1';
-    });
-  });
-});
-
-/***/ }),
-
-/***/ 7498:
-/***/ (function() {
-
-var form = document.getElementById('contactForm');
-var nameInput = document.getElementById('name');
-var surnameInput = document.getElementById('surname');
-var emailInput = document.getElementById('email');
-var telephoneInput = document.getElementById('telephone');
-var messageInput = document.getElementById('message');
-var checkboxInput = document.getElementById('checkbox');
-var inputs = [nameInput, emailInput, messageInput, surnameInput, telephoneInput];
-var checkboxContainer = document.querySelector('.contacts__private');
-var nameError = document.querySelector('.error-name');
-var surnameError = document.querySelector('.error-surname');
-var emailError = document.querySelector('.error-mail');
-var telephoneError = document.querySelector('.error-telephone');
-var messageError = document.querySelector('.error-message');
-var checkboxError = document.querySelector('.error-checkbox');
-function validateForm() {
-  form.addEventListener('submit', function (event) {
-    var isValid = true;
-
-    // Clear previous error states
-    clearErrors();
-
-    // Validate name
-    if (nameInput.value.trim() === '') {
-      showError(nameInput, nameError);
-      isValid = false;
-    }
-
-    // Validate surname
-    if (surnameInput.value.trim() === '') {
-      showError(surnameInput, surnameError);
-      isValid = false;
-    }
-
-    // Validate email
-    if (emailInput.value.trim() === '') {
-      showError(emailInput, emailError);
-      isValid = false;
-    } else if (!validateEmail(emailInput.value)) {
-      emailError.textContent = 'Vnesite veljavno email naslovo';
-      showError(emailInput, emailError);
-      isValid = false;
-    }
-
-    // Validate telephone
-    if (telephoneInput.value.trim() === '') {
-      showError(telephoneInput, telephoneError);
-      isValid = false;
-    } else if (!validateTelephone(telephoneInput.value)) {
-      telephoneError.textContent = 'Vnesite najprej plus in samo številke';
-      showError(telephoneInput, telephoneError);
-      isValid = false;
-    }
-
-    // Validate message
-    if (messageInput.value.trim() === '') {
-      showError(messageInput, messageError);
-      isValid = false;
-    }
-
-    // Validate checkbox
-    if (!checkboxInput.checked) {
-      checkboxContainer.classList.add('invalid');
-      checkboxError.classList.remove('hide');
-      isValid = false;
-    }
-    if (!isValid) {
-      event.preventDefault();
-    }
-  });
-}
-function showError(input, errorElement) {
-  input.classList.add('invalid');
-  errorElement.classList.remove('hide');
-}
-function clearErrors() {
-  [nameInput, surnameInput, emailInput, telephoneInput, messageInput, checkboxInput].forEach(function (input) {
-    input.classList.remove('invalid');
-    checkboxContainer.classList.remove('invalid');
-  });
-  [nameError, surnameError, emailError, telephoneError, messageError, checkboxError].forEach(function (errorElement) {
-    errorElement.classList.add('hide');
-  });
-}
-function validateEmail(email) {
-  var re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  return re.test(String(email).toLowerCase());
-}
-function validateTelephone(telephone) {
-  var re = /^\+\d{1,15}$/;
-  return re.test(telephone);
-}
-
-// Add focus event listeners to clear errors on focus
-nameInput.addEventListener('focus', function () {
-  return clearFieldError(nameInput, nameError);
-});
-surnameInput.addEventListener('focus', function () {
-  return clearFieldError(surnameInput, surnameError);
-});
-emailInput.addEventListener('focus', function () {
-  return clearFieldError(emailInput, emailError);
-});
-telephoneInput.addEventListener('focus', function () {
-  return clearFieldError(telephoneInput, telephoneError);
-});
-messageInput.addEventListener('focus', function () {
-  return clearFieldError(messageInput, messageError);
-});
-checkboxInput.addEventListener('focus', function () {
-  checkboxContainer.classList.remove('invalid');
-  checkboxError.classList.add('hide');
-});
-function clearFieldError(input, errorElement) {
-  input.classList.remove('invalid');
-  errorElement.classList.add('hide');
-}
-function handleInputFocusBlur() {
-  inputs.forEach(function (input) {
-    input.addEventListener('focus', function (event) {
-      event.target.classList.add('placeholder-hidden');
-    });
-    input.addEventListener('blur', function (event) {
-      if (event.target.value.trim() === '') {
-        event.target.classList.remove('placeholder-hidden');
-      }
-    });
-  });
-}
-function restorePlaceholders() {
-  inputs.forEach(function (input) {
-    input.classList.remove('placeholder-hidden');
-  });
-}
-restorePlaceholders();
-handleInputFocusBlur();
-validateForm();
-
-/***/ }),
-
 /***/ 2419:
 /***/ (function(module, __unused_webpack_exports, __webpack_require__) {
 
@@ -23191,6 +22999,14 @@ module.exports = __webpack_require__.p + "assets/Nina-Kovač.png";
 
 /***/ }),
 
+/***/ 1844:
+/***/ (function(module, __unused_webpack_exports, __webpack_require__) {
+
+"use strict";
+module.exports = __webpack_require__.p + "assets/Psiholog-1.png";
+
+/***/ }),
+
 /***/ 5111:
 /***/ (function(module, __unused_webpack_exports, __webpack_require__) {
 
@@ -23244,14 +23060,6 @@ module.exports = __webpack_require__.p + "assets/image-ženske-mojega-živlenja.
 
 "use strict";
 module.exports = __webpack_require__.p + "assets/isckreno-audio.png";
-
-/***/ }),
-
-/***/ 2516:
-/***/ (function(module, __unused_webpack_exports, __webpack_require__) {
-
-"use strict";
-module.exports = __webpack_require__.p + "assets/psiholog-img.png";
 
 /***/ }),
 
@@ -23429,7 +23237,7 @@ var ___HTML_LOADER_IMPORT_13___ = new URL(/* asset import */ __webpack_require__
 var ___HTML_LOADER_IMPORT_14___ = new URL(/* asset import */ __webpack_require__(8987), __webpack_require__.b);
 var ___HTML_LOADER_IMPORT_15___ = new URL(/* asset import */ __webpack_require__(7426), __webpack_require__.b);
 var ___HTML_LOADER_IMPORT_16___ = new URL(/* asset import */ __webpack_require__(1965), __webpack_require__.b);
-var ___HTML_LOADER_IMPORT_17___ = new URL(/* asset import */ __webpack_require__(2516), __webpack_require__.b);
+var ___HTML_LOADER_IMPORT_17___ = new URL(/* asset import */ __webpack_require__(1844), __webpack_require__.b);
 var ___HTML_LOADER_IMPORT_18___ = new URL(/* asset import */ __webpack_require__(9841), __webpack_require__.b);
 var ___HTML_LOADER_IMPORT_19___ = new URL(/* asset import */ __webpack_require__(6492), __webpack_require__.b);
 var ___HTML_LOADER_IMPORT_20___ = new URL(/* asset import */ __webpack_require__(7204), __webpack_require__.b);
@@ -23504,8 +23312,137 @@ var ___HTML_LOADER_REPLACEMENT_43___ = getUrl_default()(___HTML_LOADER_IMPORT_43
 var code = "<!DOCTYPE html> <html lang=\"sl\"> <head> <meta charset=\"UTF-8\"> <meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"> <link rel=\"apple-touch-icon\" sizes=\"57x57\" href=\"" + ___HTML_LOADER_REPLACEMENT_0___ + "\"> <link rel=\"apple-touch-icon\" sizes=\"60x60\" href=\"" + ___HTML_LOADER_REPLACEMENT_1___ + "\"> <link rel=\"apple-touch-icon\" sizes=\"72x72\" href=\"" + ___HTML_LOADER_REPLACEMENT_2___ + "\"> <link rel=\"apple-touch-icon\" sizes=\"76x76\" href=\"" + ___HTML_LOADER_REPLACEMENT_3___ + "\"> <link rel=\"apple-touch-icon\" sizes=\"114x114\" href=\"" + ___HTML_LOADER_REPLACEMENT_4___ + "\"> <link rel=\"apple-touch-icon\" sizes=\"120x120\" href=\"" + ___HTML_LOADER_REPLACEMENT_5___ + "\"> <link rel=\"apple-touch-icon\" sizes=\"144x144\" href=\"" + ___HTML_LOADER_REPLACEMENT_6___ + "\"> <link rel=\"apple-touch-icon\" sizes=\"152x152\" href=\"" + ___HTML_LOADER_REPLACEMENT_7___ + "\"> <link rel=\"apple-touch-icon\" sizes=\"180x180\" href=\"" + ___HTML_LOADER_REPLACEMENT_8___ + "\"> <link rel=\"icon\" type=\"image/png\" sizes=\"192x192\" href=\"" + ___HTML_LOADER_REPLACEMENT_9___ + "\"> <link rel=\"icon\" type=\"image/png\" sizes=\"32x32\" href=\"" + ___HTML_LOADER_REPLACEMENT_10___ + "\"> <link rel=\"icon\" type=\"image/png\" sizes=\"96x96\" href=\"" + ___HTML_LOADER_REPLACEMENT_11___ + "\"> <link rel=\"icon\" type=\"image/png\" sizes=\"16x16\" href=\"" + ___HTML_LOADER_REPLACEMENT_12___ + "\"> <link rel=\"manifest\" href=\"" + ___HTML_LOADER_REPLACEMENT_13___ + "\"> <meta name=\"msapplication-TileColor\" content=\"#ffffff\"> <meta name=\"msapplication-TileImage\" content=\"" + ___HTML_LOADER_REPLACEMENT_14___ + "\"> <meta name=\"theme-color\" content=\"#ffffff\"> <meta name=\"title\" content=\"Dobrodošli v svet harmonije in duševnega ravnovesja\"/> <meta name=\"description\" content=\"Moj cilj pri delu z vami je razumeti vaše potrebe in priti do bistva problema. Uporabljam različne metode, da vam pomagam živeti polno življenje.\"/> <meta property=\"og:type\" content=\"website\"/> <meta property=\"og:url\" content=\"https://metatags.io/\"/> <meta property=\"og:title\" content=\"Dobrodošli v svet harmonije in duševnega ravnovesja\"/> <meta property=\"og:description\" content=\"Moj cilj pri delu z vami je razumeti vaše potrebe in priti do bistva problema. Uporabljam različne metode, da vam pomagam živeti polno življenje.\"/> <meta property=\"og:image\" content=\"" + ___HTML_LOADER_REPLACEMENT_15___ + "\"/> <meta property=\"twitter:card\" content=\"summary_large_image\"/> <meta property=\"twitter:url\" content=\"https://metatags.io/\"/> <meta property=\"twitter:title\" content=\"Dobrodošli v svet harmonije in duševnega ravnovesja\"/> <meta property=\"twitter:description\" content=\"Moj cilj pri delu z vami je razumeti vaše potrebe in priti do bistva problema. Uporabljam različne metode, da vam pomagam živeti polno življenje.\"/> <meta property=\"twitter:image\" content=\"/img/Background/background-promo.png\"/> <title>Dobrodošli v svet harmonije in duševnega ravnovesja</title> </head> <body> <nav class=\"nav\"> <div class=\"container\"> <div class=\"nav__container\"> <a href=\"#glavna\" class=\"nav__logo-wrapper\"> <img src=\"" + ___HTML_LOADER_REPLACEMENT_16___ + "\" alt=\"logo\" class=\"nav__logo-img\"> <div class=\"nav__logo-name\"> Toni Mrvič </div> <div class=\"nav__logo-specialist\">Osebni in partnerski svetovalec</div> </a> <div class=\"nav__menu\"> <a class=\"nav__menu-item\" href=\"#glavna\">Glavna</a> <a class=\"nav__menu-item\" href=\"#o-meni\">O meni</a> <a class=\"nav__menu-item\" href=\"#storitve\">Storitve</a> <div class=\"nav__menu-item nav__menu-item--dropdown\" id=\"my-expertise\">Moja strokovnost <div class=\"submenu__my-expertise\"> <div class=\"submenu__wrapper-expertise\"> <div> <a class=\"submenu__item\" href=\"#moje-spretnosti\">Moje spretnosti</a> </div> <div> <a class=\"submenu__item\" href=\"#mnenja\">Mnenja</a> </div> <div> <a class=\"submenu__item\" href=\"#proces-dela\">Proces dela</a> </div> </div> </div> </div> <div class=\"nav__menu-item nav__menu-item--dropdown\" id=\"my-works\">Moja dela <div class=\"submenu__my-works\"> <div class=\"submenu__wrapper-works\"> <div> <a class=\"submenu__item submenu__item--center\" href=\"#moji-intervjuji-in-clanki\"> Moji intervjuji in članki</a> </div> <div> <a class=\"submenu__item\" href=\"#moje-knjige\">Moje knjige</a> </div> </div> </div> </div> <div class=\"nav__menu-item nav__menu-item--dropdown\" id=\"contacts\">Kontakti <div class=\"submenu__contacts submenu-contacts--position\"> <div class=\"submenu__wrapper-contacts\"> <div> <a class=\"submenu__item\" href=\"#kontakti\">Kontakti</a> </div> <div> <a class=\"submenu__item submenu__item--right\" href=\"#dodatne-informacije\">Dodatne informacije</a> </div> </div> </div> </div> </div> </div> </div> </nav> <div class=\"burger\" id=\"toggleBurger\"> <span class=\"burger__line\"></span> <span class=\"burger__line\"></span> <span class=\"burger__line\"></span> </div> <div class=\"burger-layer\"> <div class=\"burger-menu\"> <div class=\"burger-menu__container\"> <a class=\"burger-menu__item\" href=\"#glavna\">Glavna</a> <a class=\"burger-menu__item\" href=\"#o-meni\">O meni</a> <a class=\"burger-menu__item\" href=\"#storitve\">Moje storitve</a> <a class=\"burger-menu__item\" href=\"#moje-spretnosti\">Moje spretnosti</a> <a class=\"burger-menu__item\" href=\"#mnenja\">Mnenija</a> <a class=\"burger-menu__item\" href=\"#proces-dela\">Proces dela</a> <a class=\"burger-menu__item\" href=\"#moji-intervjuji-in-clanki\">Moji intervjuji in članki</a> <a class=\"burger-menu__item\" href=\"#moje-knjige\">Moje knige</a> <a class=\"burger-menu__item\" href=\"#kontakti\">Kontakti</a> <a class=\"burger-menu__item\" href=\"#dodatne-informacije\">Dodatne informacije</a> </div> </div> </div> <main> <section class=\"promo\" id=\"glavna\"> <div class=\"container\"> <div class=\"promo__wrapper\"> <h1 class=\"promo__title\"> Dobrodošli v svet harmonije in duševnega ravnovesja </h1> <p class=\"promo__item\"> Pomagam vam najti notranjo moč in samozavest </p> <a href=\"#o-meni\" class=\"promo__btn\"> O meni </a> </div> </div> </section> <section class=\"about-me\" id=\"o-meni\"> <div class=\"container\"> <div class=\"about-me__wrapper\"> <img src=\"" + ___HTML_LOADER_REPLACEMENT_17___ + "\" alt=\"osebna fotografija moškega psihologa\" class=\"about-me__img\"> <div class=\"about-me__text-block\"> <h2 class=\"about-me__title\">O meni</h2> <p class=\"about-me__text-first\"> Ime mi je Toni Mrvič, sem osebni in partnerski svetovalec z dolgoletnimi izkušnjami na področju odnosov, vedenja in čustvovanja. Moj cilj je, da bi vam pomagal najti notranje ravnovesje, izboljšati kakovost življenja in odkriti vaš potencial. </p> <p class=\"about-me__text-second\">Verjamem, da je vsak človek edinstven in ima ogromne vire za premagovanje življenjskih težav. Moja naloga je, da vas na tej poti podprem ter vam pomagati razumeti in sprejeti sebe. Naučili se boste, kako obvladovati čustva in stres, ter razvili veščine, ki jih potrebujete, da bi lahko dosegli notranjo harmonijo in vzpostavljali zdrave odnose. </p> </div> </div> </div> </section> <section class=\"services\" id=\"storitve\"> <div class=\"divider\"></div> <div class=\"container\"> <h2 class=\"services__title-mobile\">Moje storitve </h2> <div class=\"services__wrapper\"> <div class=\"services__text-block\"> <h2 class=\"services__title\">Moje storitve</h2> <div class=\"services__wrapper-text\"> <div class=\"services__item\"> Začnem tam, kjer ste trenutno <span class=\"services__item-span\">brez vnaprej določenega načrta</span> </div> <p class=\"services__text\"> Moj cilj pri delu z vami je razumeti vaše potrebe in priti do bistva problema. Uporabljam različne metode, da vam pomagam živeti polno življenje. </p> </div> <a href=\"#kontakti\" class=\"services__button\"> Kontaktiraj me </a> </div> <div class=\"services__cards-block\"> <div class=\"services__card\"> <div class=\"services__card-img\"> <img src=\"" + ___HTML_LOADER_REPLACEMENT_18___ + "\" alt=\"Ikona osebnosti\"> </div> <h3 class=\"services__card-title services__card-title--first\"> Individualni pristop </h3> <p class=\"services__card-text\"> Samo vi in jaz, skupaj premagujemo osebne neprijetne izkušnje, jih predelujemo, skozi njih dozorevamo in črpamo izkušnje za prihodnost. </p> </div> <div class=\"services__card\"> <div class=\"services__card-img\"> <img src=\"" + ___HTML_LOADER_REPLACEMENT_19___ + "\" alt=\"Ikona ekipe podjetja\"> </div> <h3 class=\"services__card-title\"> Utrjevanje odnosov v podjetjih </h3> <p class=\"services__card-text\"> Okrepimo odnose, razrešimo konflikte in ustvarimo sodelujoče vzdušje. </p> </div> <div class=\"services__card\"> <div class=\"services__card-img\"> <img src=\"" + ___HTML_LOADER_REPLACEMENT_20___ + "\" alt=\"Ikona zakonskega para\"> </div> <h3 class=\"services__card-title services__card-title--third\"> Svetovanje za pare </h3> <p class=\"services__card-text\"> Pri partnerskem pristopu spozavamo sebe in partnerja, primarne družinske vzorce ter se globlje emocionalno povežeta. </p> </div> <div class=\"services__card\"> <div class=\"services__card-img\"> <img src=\"" + ___HTML_LOADER_REPLACEMENT_21___ + "\" alt=\"Ikona sonca, simbol boja proti depresiji\"> </div> <h3 class=\"services__card-title\"> Pomoč pri stresu ter žalovanju </h3> <p class=\"services__card-text\"> Našli bomo načine za obvladovanje stresa ter skupaj zdravo predelovali proces žalovanja ob izgubi. </p> </div> </div> </div> </div> </section> <section class=\"skills\" id=\"moje-spretnosti\"> <div class=\"container\"> <div class=\"skills__wrapper\"> <h2 class=\"skills__title\">Moje spretnosti</h2> <p class=\"skills__question\"> Zakaj izbrati mene? </p> <p class=\"skills__text\"> Strokovnost, diskretnost, individualni pristop k vsakemu človeku, osredotočenost na vaše potrebe in preverjena učinkovitost mojih metod dela. </p> </div> </div> </section> <section class=\"reviews\" id=\"mnenja\"> <div class=\"container\"> <h2 class=\"reviews__title\">Mnenja</h2> <div class=\"reviews__slider\">> <div class=\"reviews__card\"> <div class=\"reviews__wrapper-img-name\"> <img src=\"" + ___HTML_LOADER_REPLACEMENT_22___ + "\" alt=\"Majhna okrogla fotografija ženskega obraza, ki označuje, komu pripada ocena\" class=\"reviews__card-img\"> <div class=\"reviews__card-name\">Nina Kovač</div> </div> <p class=\"reviews__card-text\"> \"Na Tonija sem se obrnila na najnižji točki v življenju. Z njegovo pomočjo sem našla sebe in zaživela drugače. Vedno pravi, da sem si pomagala sama, on pa me je le vodil. Še vedno se nanj obrnem po nasvet, predvsem pa se ob njem počutim varno.\" </p> </div> <div class=\"reviews__card\"> <div class=\"reviews__wrapper-img-name\"> <img src=\"" + ___HTML_LOADER_REPLACEMENT_23___ + "\" alt=\"Majhna okrogla fotografija dveh obrazov zakonskega para, ki označuje, kdo je lastnik fotografije\" class=\"reviews__card-img\"> <div class=\"reviews__card-name\">Peter in Maja Novak</div> </div> <p class=\"reviews__card-text\"> \"Tonija sva spoznala na seminarju za zakonce. Prepričal naju je s preprostostjo in direktnostjo, zato smo se dogovorili za on-line zakonsko terapijo. Ustvaril je zaupno ozračje, pomagal prepoznavati in predelovati čustva. Všeč nama je njegova strokovnost, profesionalnost, direktnost in sproščenost. Priporočava..\" </p> </div> <div class=\"reviews__card\"> <div class=\"reviews__wrapper-img-name\"> <img src=\"" + ___HTML_LOADER_REPLACEMENT_24___ + "\" alt=\"Majhna okrogla fotografija moškega obraza, ki označuje, komu pripada ocena.\" class=\"reviews__card-img\"> <div class=\"reviews__card-name\">Matej Potočnik</div> </div> <p class=\"reviews__card-text\"> \"Tonijeva svetovanja so me v mnogočem spremenile. Imam drugačen pogled na preteklost in sprejel sem dogodke iz mladosti kot pozitivne. Ne zamerim staršem za odsotnost. Po vsaki terapiji sem se počutil sproščenega in polnega energije, čeprav ni bilo enostavno, ko ste mi pomagali soočiti se s preteklostjo.\" </p> </div> <div class=\"reviews__card\"> <div class=\"reviews__wrapper-img-name\"> <img src=\"" + ___HTML_LOADER_REPLACEMENT_25___ + "\" alt=\"Majhna okrogla fotografija ženskega obraza, ki označuje, komu pripada ocena\" class=\"reviews__card-img\"> <div class=\"reviews__card-name\">Eva Krajnc</div> </div> <p class=\"reviews__card-text\"> \"Mobing na delovnem mestu te pusti osamljenega in neslišanega. Sprva okolica misli, da si le preobčutljiv, a sčasoma ugotoviš, da je potrebno ukrepati. Toni mi je s svojim poslušanjem, empatijo in tehnikami pomagal umiriti se, razumeti situacijo ter jo predelati.\" </p> </div> </div> </div> </section> <section class=\"process\"> <div class=\"divider\"></div> <div class=\"container\"> <div class=\"process__wrapper\" id=\"proces-dela\"> <div class=\"process__img-wrapper\"> <div class=\"process__img-text-container\"> <div class=\"process__img-text-background\"> <p class=\"process__img-text\"> V živo in on-line </p> </div> </div> <img src=\"" + ___HTML_LOADER_REPLACEMENT_26___ + "\" alt=\"Roka pomoči, ki jo je iztegnil moški\" class=\"process__img\"> </div> <div class=\"process__text\"> <h2 class=\"process__title\">Proces dela</h2> <ul class=\"process__items\"> <li class=\"process__item\"> <div class=\"process__item-title-container\"> <div class=\"process__item-title-number\"> 1 </div> <h3 class=\"process__item-title process__item-title--first\"> Prvo srečanje </h3> </div> <p class=\"process__item-text\"> Na prvem srečanju se bomo seznanili z vašo potrebo ter izkusli moj način dela. Nato se boste odločili, če želite nadaljevati proces. </p> </li> <li class=\"process__item\"> <div class=\"process__item-title-container\"> <div class=\"process__item-title-number\"> 2 </div> <h3 class=\"process__item-title\"> Način dela </h3> </div> <p class=\"process__item-text\"> V 12tih srečanjih, ki potekajo enkrat na teden od 45 - 60 min, spoznamo kje in kako smo se naučili določenih čustvenih odzivov, vedenjskih vzorcev, pričakovanj ter kako smo bili ob tem čustveno zaznamovani. </p> </li> <li class=\"process__item\"> <div class=\"process__item-title-container\"> <div class=\"process__item-title-number\"> 3 </div> <h3 class=\"process__item-title\"> Razrešitev </h3> </div> <p class=\"process__item-text\"> Po osvetlitvi neprijetnih čustvih, se z njimi soočimo, jih priznamo ter jim naredimo prostor, da se izživijo. Nato jih potolažimo ter s tem močno zmanjšamo njihovo intenzivnost ter vpliv na sedanjost. </p> </li> <li class=\"process__item\"> <div class=\"process__item-title-container\"> <div class=\"process__item-title-number\"> 4 </div> <h3 class=\"process__item-title\"> Ocena procesa </h3> </div> <p class=\"process__item-text\"> Na koncu procesa bomo skupaj analizirali koliko ste bolj pomirjeni sami s seboj, s svojo preteklostjo ter v kakšni meri lahko neobremenjeno od preteklih izkušenj ustvajate prihodnost. </p> </li> </ul> </div> </div> </div> </section> <section class=\"interview\" id=\"moji-intervjuji-in-clanki\"> <div class=\"container\"> <h2 class=\"interview__title\">Moji intervjuji in članki</h2> <div class=\"interview__slider\"> <div class=\"interview__slide\"> <div class=\"interview__slide-body\"> <img src=\"" + ___HTML_LOADER_REPLACEMENT_27___ + "\" alt=\"Fotografija para na družinskem taboru, na družinskem srečanju, med drugimi pari in družinami.\" class=\"interview__slide-img\"> <a href=\"https://issuu.com/druzina-in-zivljenje/docs/diz_jesen_2021/s/13559271\" class=\"interview__slide-link\">Duhovni teden za družine Veržej</a> </div> </div> <div class=\"interview__slide\"> <div class=\"interview__slide-body\"> <img src=\"" + ___HTML_LOADER_REPLACEMENT_28___ + "\" alt=\"Fotografija fanta in dekleta, ki sedita v naravi, ob reki.\" class=\"interview__slide-img\"> <a href=\"https://www.facebook.com/watch/?v=858962128169356&rdid=WPi3uKbwD80UfrKO\" class=\"interview__slide-link\">Naši odnosi določajo kvaliteto življenja</a> </div> </div> <div class=\"interview__slide\"> <div class=\"interview__slide-body\"> <img src=\"" + ___HTML_LOADER_REPLACEMENT_29___ + "\" alt=\"Fotografija sedeče deklice, ki je stisnila roke k sebi.\" class=\"interview__slide-img\"> <a href=\"https://www.youtube.com/watch?v=sZS5nS5TU8E\" class=\"interview__slide-link\">Ne jemljimo osebno</a> </div> </div> <div class=\"interview__slide\"> <div class=\"interview__slide-body\"> <img src=\"" + ___HTML_LOADER_REPLACEMENT_30___ + "\" alt=\"Fotografija dveh stolpcev tankih knjig, ki ležita na mizi.\" class=\"interview__slide-img\"> <a href=\"https://www.youtube.com/watch?v=qjJodLhPfv8\" class=\"interview__slide-link\">O skupnih knjigah iskreno o moških in ženske...</a> </div> </div> <div class=\"interview__slide\"> <div class=\"interview__slide-body\"> <img src=\"" + ___HTML_LOADER_REPLACEMENT_31___ + "\" alt=\"Fotografija moškega psihologa, povezana z njegovo vrsto dejavnosti, zlasti z aktivnostmi, povezanimi z ustvarjanjem podcasta.\" class=\"interview__slide-img\"> <a href=\"https://avdio.ognjisce.si/share/betanija_2021_10_18_ZZ_Toni_Mrvic\" class=\"interview__slide-link\">Pohvale, pohvale in še enkrat pohvale</a> </div> </div> </div> </div> </section> <section class=\"books\" id=\"moje-knjige\"> <div class=\"container\"> <h2 class=\"books__title\">Moje knjige</h2> <div class=\"books__wrapper\"> <div class=\"books__book\"> <img src=\"" + ___HTML_LOADER_REPLACEMENT_32___ + "\" alt=\"Fotografija naslovnice knjige, ki jo lahko naročite v trgovini.\" class=\"books__book-img\"> <div class=\"books__book-block\"> <p class=\"books__book-about\">Ta knjiga je ustvarjena za izboljšanje partnerskih in družinskih odnosov, saj prav ti določajo zadovoljstvo v družini. Iskreno odpiramo vrata v moški svet, da vam pomagamo bolje razumeti svoje partnerje in sinove ter vzpostaviti z njimi globlje vezi.</p> <a href=\"https://orton.si/products/iskreno-o-moskih-kako-s-partnerji-in-sinovi?_pos=6&_sid=c23b1e3e9&_ss=r\" class=\"books__book-link\">Kupim</a> </div> </div> <div class=\"books__book\"> <img src=\"" + ___HTML_LOADER_REPLACEMENT_33___ + "\" alt=\"Fotografija naslovnice zvočne knjige, ki jo je mogoče kupiti v spletni trgovini.\" class=\"books__book-img\"> <div class=\"books__book-block\"> <p class=\"books__book-about\"> <span> “Iskreno o moških” </span> je bila pretvorjena v zvočno knjigo za vaše udobje, če raje poslušate. </p> <a href=\"https://orton.si/products/iskreno-o-moskih-kako-s-partnerji-in-sinovi-zvocna-knjiga\" class=\"books__book-link\">Kupim</a> </div> </div> <div class=\"books__book\"> <img src=\"" + ___HTML_LOADER_REPLACEMENT_34___ + "\" alt=\"Fotografija naslovnice knjige, ki jo lahko naročite v trgovini.\" class=\"books__book-img\"> <div class=\"books__book-block\"> <p class=\"books__book-about\"> These new insights about men will allow you to more easily understand your husband and sons and to connect more deeply with them. You will be able to better recognize their needs and desires, which will help create more harmonious and trusting relationships. </p> <a href=\"https://orton.si/products/the-man-ual-ang-e-knjiga\" class=\"books__book-link\">Kupim</a> </div> </div> <div class=\"books__book\"> <img src=\"" + ___HTML_LOADER_REPLACEMENT_35___ + "\" alt=\"Fotografija naslovnice knjige, ki jo lahko naročite v trgovini.\" class=\"books__book-img\"> <div class=\"books__book-block\"> <p class=\"books__book-about\"> <span>“The Man-al”</span> has been converted into an audiobook for your convenience, if you prefer listening. </p> <a href=\"https://orton.si/products/the-man-ual-zvocna-knjiga\" class=\"books__book-link\">Kupim</a> </div> </div> <div class=\"books__book\"> <img src=\"" + ___HTML_LOADER_REPLACEMENT_36___ + "\" alt=\"Fotografija naslovnice knjige, ki jo lahko naročite v trgovini.\" class=\"books__book-img\"> <div class=\"books__book-block\"> <p class=\"books__book-about\"> Ta knjiga bo izboljšala življenja moških in življenja partneric ter celotne družine, saj ponuja nasvete za izboljšanje odnosov. Pomagala vam bo posodobiti zastarela prepričanja in bolje razumeti svoje bližnje. </p> <a href=\"https://orton.si/products/zenske-mojega-zivljenja-kako-s-partnerico-hcerjo-mamo-in-tasco?_pos=3&_sid=c23b1e3e9&_ss=r\" class=\"books__book-link\">Kupim</a> </div> </div> </div> </div> </section> <section class=\"contacts\"> <div class=\"divider\"></div> <div class=\"container\"> <h2 class=\"contacts__title\" id=\"kontakti\">Kontakti </h2> <div class=\"contacts__wrapper\"> <div class=\"contacts__google-map\"> <iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2790.2866611413465!2d14.876549373975404!3d45.624977322700246!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4764f1fce2a09641%3A0x23f1a4fc642f9d85!2sUl.%20Brigade%20Moris%2012%2C%201330%20Ko%C4%8Devje!5e0!3m2!1sru!2ssi!4v1724924451842!5m2!1sru!2ssi\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\" style=\"width:100%;height:100%;border:0\"> </iframe> </div> <div class=\"contacts__info\"> <p class=\"contacts__info-item\"> <span class=\"contacts__info-title\">Srečanje <br> v živo ali po spletu</span> <span class=\"contacts__info-text\">Za posvet me kontaktirate preko spletnega obrazca</span> </p> <form action=\"#\" class=\"contacts__form\" id=\"contactForm\" method=\"post\"> <div class=\"contacts__wrapper-name-surname\"> <div class=\"contacts__wrapper-name\"> <label for=\"name\">Ime</label> <input type=\"text\" maxlength=\"50\" id=\"name\" class=\"contacts__name\" placeholder=\"Matej\"> <div class=\"error error-name hide\">Ime je obvezno</div> </div> <div class=\"contacts__wrapper-surname\"> <label for=\"surname\">Priimek</label> <input type=\"text\" maxlength=\"50\" id=\"surname\" class=\"contacts__surname\" placeholder=\"Novak\"> <div class=\"error error-surname hide\">Priimek je obvezen</div> </div> </div> <div class=\"contacts__wrapper-email-telephone\"> <div class=\"contacts__wrapper-email\"> <label for=\"email\">E-naslov</label> <input type=\"email\" maxlength=\"254\" id=\"email\" class=\"contacts__email\" placeholder=\"novak@gmail.com\"> <div class=\"error error-mail hide\">E-naslov je obvezen</div> </div> <div class=\"contacts__wrapper-telephone\"> <label for=\"telephone\">Telefon</label> <input type=\"tel\" maxlength=\"20\" id=\"telephone\" class=\"contacts__telephone\" placeholder=\"+ 38XXXXXXXX\"> <div class=\"error error-telephone hide\">Telefon je obvezen</div> </div> </div> <div class=\"contacts__wrapper-message\"> <label for=\"message\">Sporočilo</label> <textarea style=\"resize:none\" maxlength=\"500\" id=\"message\" class=\"contacts__message\"></textarea> <div class=\"error error-message hide\">Sporočilo je obvezno</div> </div> <div class=\"contacts__wrapper-privet-button\"> <div class=\"contacts__private\"> <input type=\"checkbox\" id=\"checkbox\" class=\"contacts__checkbox\"> <label for=\"checkbox\" class=\"contacts__checkbox-text\"> S pošiljanjem se strinjate z <br> našimi <a href=\"./privacy/privacy.html\">Pogoji</a> in <a href=\"./privacy/privacy.html\">Politiko Zasebnosti</a> <span class=\"error error-checkbox hide\">Potrditveno polje je obvezno</span> </label> </div> <button type=\"submit\" formnovalidate class=\"contacts__button\">Pošlji <span class=\"dbl-spinner-wrapper\"> <span class=\"dbl-spinner\"></span> <span class=\"dbl-spinner dbl-spinner--2\"></span> </span> </button> </div> </form> </div> </div> </div> <div class=\"modal-result\" id=\"modalResult\"> <button class=\"modal-result__btn-close\" id=\"modalCloseBtn\"> <img src=\"" + ___HTML_LOADER_REPLACEMENT_37___ + "\" alt=\"cross button\" class=\"modal-result__icon-close\"> </button> <div class=\"modal-result__container\"> </div> </div> </section> </main> <footer class=\"info\" id=\"dodatne-informacije\"> <div class=\"container\"> <div class=\"info__wrapper\"> <a href=\"#glavna\" class=\"nav__logo-wrapper\"> <img src=\"" + ___HTML_LOADER_REPLACEMENT_16___ + "\" alt=\"logo\" class=\"nav__logo-img\"> <div class=\"nav__logo-name\"> Toni Mrvič </div> <div class=\"nav__logo-specialist\">Osebni in partnerski svetovalec</div> </a> <div class=\"info__contacts\"> <div class=\"info__telephone-container\"> <img src=\"" + ___HTML_LOADER_REPLACEMENT_38___ + "\" alt=\"telephone icon\" class=\"info__telephone-icon\"> <a class=\"info__telephone-link\" href=\"tel:+38631546182\">+386 31 546 182</a> </div> <div class=\"info__email-container\"> <img src=\"" + ___HTML_LOADER_REPLACEMENT_39___ + "\" alt=\"Ikona e-pošte\" class=\"info__email-icon\"> <a class=\"info__email-link\" href=\"mailto:toni@letim.si\">toni@letim.si</a> </div> <div class=\"info__address-container\"> <div> <img src=\"" + ___HTML_LOADER_REPLACEMENT_40___ + "\" alt=\"office icon\" class=\"info__address-icon\"> <p class=\"info__address-item\">pisarna </p> </div> <p class=\"info__address-office\"> Ulica Brigade Moris 12 <br> Kočevje </p> <p class=\"info__social-item\"> Kontaktirajte me preko <br> družbenih omrežij </p> <div class=\"info__social-container\"> <a href=\"https://www.facebook.com/toni.mrvic\" class=\"info__social-link\"> <img src=\"" + ___HTML_LOADER_REPLACEMENT_41___ + "\" alt=\"Facebook ikona\" class=\"info__social-icon\"> </a> <a href=\"viber://chat?number=%2B38631546182\" class=\"info__social-link\"> <img src=\"" + ___HTML_LOADER_REPLACEMENT_42___ + "\" alt=\"ikona viber\" class=\"info__social-icon\"> </a> <a href=\"https://wa.me/38631546182\" class=\"info__social-link\"> <img src=\"" + ___HTML_LOADER_REPLACEMENT_43___ + "\" alt=\"Ikona WhatsApp\" class=\"info__social-icon\"> </a> </div> </div> </div> <ul class=\"info__menu\"> <li class=\"info__menu-item\"> <a href=\"#glavna\" class=\"info__menu-link\">Glavna</a> </li> <li class=\"info__menu-item\"> <a href=\"#o-meni\" class=\"info__menu-link\">O meni</a> </li> <li class=\"info__menu-item\"> <a href=\"#storitve\" class=\"info__menu-link\">Moje storitve</a> </li> <li class=\"info__menu-item\"> <a href=\"#moje-spretnosti\" class=\"info__menu-link\">Moje spretnosti</a> </li> <li class=\"info__menu-item\"> <a href=\"#mnenja\" class=\"info__menu-link\">Mnenija</a> </li> <li class=\"info__menu-item\"> <a href=\"#proces-dela\" class=\"info__menu-link\">Proces dela</a> </li> <li class=\"info__menu-item\"> <a href=\"#moji-intervjuji-in-clanki\" class=\"info__menu-link\">Moji intervjuji in članki</a> </li> <li class=\"info__menu-item\"> <a href=\"#moje-knjige\" class=\"info__menu-link\">Moje knige</a> </li> <li class=\"info__menu-item\"> <a href=\"#kontakti\" class=\"info__menu-link\">Kontakti</a> </li> <li class=\"info__menu-item info__menu-item--padding-bottom-0\"> <a href=\"#dodatne-informacije\" class=\"info__menu-link\">Dodatne informacije</a> </li> </ul> </div> </div> </footer> </body> </html>";
 // Exports
 /* harmony default export */ var src = ((/* unused pure expression or super */ null && (code)));
-// EXTERNAL MODULE: ./src/modules/navMenu.js
-var navMenu = __webpack_require__(7782);
+;// CONCATENATED MODULE: ./src/modules/navMenu.js
+// Dropdown menu
+
+var menuItems = ['my-expertise', 'my-works', 'contacts'];
+var navMenuItems = document.querySelectorAll(".nav__menu-item");
+var submenuWrapperExpertise = document.querySelector(".submenu__my-expertise");
+var submenuWrapperWorks = document.querySelector(".submenu__my-works");
+var submenuWrapperContacts = document.querySelector(".submenu__contacts");
+var subMenuItems = document.querySelectorAll(".submenu__item");
+var navMenuItemsDropdowns = document.querySelectorAll(".nav__menu-item--dropdown");
+var body = document.querySelector("body");
+function navMenu() {
+  function hiddenElement() {
+    var elements = [submenuWrapperExpertise, submenuWrapperWorks, submenuWrapperContacts];
+    elements.forEach(function (element) {
+      element.style.display = 'none';
+      element.style.visibility = 'hidden';
+      element.style.zIndex = '-1';
+      element.style.opacity = '0';
+      element.style.transition = 'all 0.3s ease';
+    });
+  }
+  function closeDropdownsOnBodyClick() {
+    body.addEventListener("click", function (event) {
+      event.stopPropagation();
+      navMenuItemsDropdowns.forEach(function (navMenuItemDropdown) {
+        navMenuItemDropdown.classList.remove('active');
+      });
+      hiddenElement();
+    });
+  }
+  function closeDropdownsOnNavMenuItemClick() {
+    navMenuItems.forEach(function (navMenuItem) {
+      navMenuItem.addEventListener("click", function (event) {
+        event.stopPropagation();
+        navMenuItemsDropdowns.forEach(function (navMenuItemDropdown) {
+          if (navMenuItem.id === navMenuItemDropdown.id) {
+            navMenuItemDropdown.classList.add('active');
+          } else {
+            navMenuItemDropdown.classList.remove('active');
+          }
+        });
+        if (submenuWrapperExpertise.style.display === 'block' || submenuWrapperWorks.style.display === 'block' || submenuWrapperContacts.style.display === 'block') {
+          hiddenElement();
+        }
+      });
+    });
+  }
+  function closeDropdownsOnSubMenuItemClick() {
+    subMenuItems.forEach(function (subMenuItem) {
+      subMenuItem.addEventListener("click", function (event) {
+        event.stopPropagation();
+        navMenuItemsDropdowns.forEach(function (navMenuItemDropdown) {
+          if (subMenuItem.id === navMenuItemDropdown.id) {
+            navMenuItemDropdown.classList.add('active');
+          } else {
+            navMenuItemDropdown.classList.remove('active');
+          }
+        });
+        if (submenuWrapperExpertise.style.display === 'block' || submenuWrapperWorks.style.display === 'block' || submenuWrapperContacts.style.display === 'block') {
+          hiddenElement();
+        }
+      });
+    });
+  }
+  function visibleElement(effect, element) {
+    element.style.transition = effect; // время перехода
+    element.style.opacity = '1';
+    element.style.visibility = 'visible';
+    element.style.zIndex = '1';
+  }
+  function initializeDropdownMenu(menuItems) {
+    menuItems.forEach(function (itemId) {
+      var menuItem = document.getElementById(itemId);
+      var enterTimeout, leaveTimeout; // Таймеры для ховера и выхода
+
+      function openDropdownOnNavMenuItemClick() {
+        menuItem.addEventListener('click', function (event) {
+          event.stopPropagation();
+          clearTimeout(enterTimeout); // Очищаем таймер ухода на случай быстрого клика  
+          var submenu = this.querySelector(".submenu__".concat(itemId));
+          submenu.style.display = 'block';
+          enterTimeout = setTimeout(function () {
+            visibleElement('all 0.3s ease', submenu);
+            navMenuItemsDropdowns.forEach(function (navMenuItemDropdown) {
+              if (menuItem.id === navMenuItemDropdown.id) {
+                navMenuItemDropdown.classList.add('active');
+              } else {
+                navMenuItemDropdown.classList.remove('active');
+              }
+            });
+          }, 100); // Ожидание перед показом меню  
+        });
+      }
+      function openDropdownOnNavMenuItemHover() {
+        menuItem.addEventListener('mouseenter', function () {
+          clearTimeout(enterTimeout); // Очищаем таймер ухода  
+          var submenu = this.querySelector(".submenu__".concat(itemId));
+          submenu.style.display = 'block';
+          enterTimeout = setTimeout(function () {
+            visibleElement('all 0.5s ease', submenu);
+          }, 100); // Ожидание перед показом меню  
+        });
+      }
+      function closeDropdownOnNavMenuItemHover() {
+        menuItem.addEventListener('mouseleave', function () {
+          clearTimeout(leaveTimeout); // Очищаем таймер входа  
+          var submenu = this.querySelector(".submenu__".concat(itemId));
+          submenu.style.transition = 'all 0.3s ease';
+          submenu.style.opacity = '0';
+          submenu.style.visibility = 'hidden';
+          submenu.style.zIndex = '-1';
+          navMenuItemsDropdowns.forEach(function (navMenuItemDropdown) {
+            navMenuItemDropdown.classList.remove('active');
+          });
+          leaveTimeout = setTimeout(function () {
+            submenu.style.display = 'none';
+          }, 100); // Соответствует времени перехода  
+          // Ожидание перед скрытием меню  
+        });
+      }
+      openDropdownOnNavMenuItemClick();
+      openDropdownOnNavMenuItemHover();
+      closeDropdownOnNavMenuItemHover();
+    });
+  }
+  closeDropdownsOnBodyClick();
+  closeDropdownsOnNavMenuItemClick();
+  closeDropdownsOnSubMenuItemClick();
+  initializeDropdownMenu(menuItems);
+}
 ;// CONCATENATED MODULE: ./src/modules/utils.js
 function getScrollBarSize() {
   var el = window.document.createElement('textarea'),
@@ -23594,7 +23531,6 @@ function toggleBurgerMenu() {
   });
   handleMenuItemClick();
 }
-toggleBurgerMenu();
 // EXTERNAL MODULE: ./node_modules/jquery/dist/jquery.js
 var jquery = __webpack_require__(4692);
 var jquery_default = /*#__PURE__*/__webpack_require__.n(jquery);
@@ -23605,85 +23541,227 @@ var slick = __webpack_require__(9599);
 
 
 
-jquery_default()(document).ready(function () {
-  jquery_default()('.reviews__slider').slick({
-    dots: true,
-    arrows: true,
-    autoplay: true,
-    autoplaySpeed: 6000,
-    infinite: true,
-    // Бесконечный слайдер
-    slidesToShow: 3,
-    // Показывать 3 слайда
-    slidesToScroll: 1,
-    // Перемещаться по одному слайду
-    responsive: [{
-      breakpoint: 1920,
-      settings: {
-        slidesToShow: 3,
-        slidesToScroll: 1
-      }
-    }, {
-      breakpoint: 1024,
-      settings: {
-        slidesToShow: 2,
-        slidesToScroll: 1
-      }
-    }, {
-      breakpoint: 576,
-      settings: {
-        slidesToShow: 1,
-        slidesToScroll: 1
-      }
-    }]
+function reviews() {
+  jquery_default()(document).ready(function () {
+    jquery_default()('.reviews__slider').slick({
+      dots: true,
+      arrows: true,
+      autoplay: true,
+      autoplaySpeed: 6000,
+      infinite: true,
+      // Бесконечный слайдер
+      slidesToShow: 3,
+      // Показывать 3 слайда
+      slidesToScroll: 1,
+      // Перемещаться по одному слайду
+      responsive: [{
+        breakpoint: 1920,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1
+        }
+      }, {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1
+        }
+      }, {
+        breakpoint: 576,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1
+        }
+      }]
+    });
   });
-});
+}
 ;// CONCATENATED MODULE: ./src/modules/interview.js
 
 
 
 
-jquery_default()(document).ready(function () {
-  jquery_default()('.interview__slider').slick({
-    dots: true,
-    arrows: true,
-    autoplay: true,
-    autoplaySpeed: 6000,
-    infinite: true,
-    // Бесконечный слайдер
-    slidesToShow: 4,
-    // Показывать 3 слайда
-    slidesToScroll: 1,
-    // Перемещаться по одному слайду
-    responsive: [{
-      breakpoint: 1920,
-      settings: {
-        slidesToShow: 4,
-        slidesToScroll: 1
-      }
-    }, {
-      breakpoint: 1440,
-      settings: {
-        slidesToShow: 3,
-        slidesToScroll: 1
-      }
-    }, {
-      breakpoint: 768,
-      settings: {
-        slidesToShow: 2,
-        slidesToScroll: 1
-      }
-    }, {
-      breakpoint: 577,
-      settings: {
-        slidesToShow: 1,
-        slidesToScroll: 1
-      }
-    }]
+function interview() {
+  jquery_default()(document).ready(function () {
+    jquery_default()('.interview__slider').slick({
+      dots: true,
+      arrows: true,
+      autoplay: true,
+      autoplaySpeed: 6000,
+      infinite: true,
+      // Бесконечный слайдер
+      slidesToShow: 4,
+      // Показывать 3 слайда
+      slidesToScroll: 1,
+      // Перемещаться по одному слайду
+      responsive: [{
+        breakpoint: 1920,
+        settings: {
+          slidesToShow: 4,
+          slidesToScroll: 1
+        }
+      }, {
+        breakpoint: 1440,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1
+        }
+      }, {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1
+        }
+      }, {
+        breakpoint: 577,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1
+        }
+      }]
+    });
   });
-});
-// EXTERNAL MODULE: ./src/modules/validateForm.js
-var validateForm = __webpack_require__(7498);
+}
+;// CONCATENATED MODULE: ./src/modules/validateForm.js
+var validateForm_form = document.getElementById('contactForm');
+var nameInput = document.getElementById('name');
+var surnameInput = document.getElementById('surname');
+var emailInput = document.getElementById('email');
+var telephoneInput = document.getElementById('telephone');
+var messageInput = document.getElementById('message');
+var checkboxInput = document.getElementById('checkbox');
+var inputs = [nameInput, emailInput, messageInput, surnameInput, telephoneInput];
+var checkboxContainer = document.querySelector('.contacts__private');
+var nameError = document.querySelector('.error-name');
+var surnameError = document.querySelector('.error-surname');
+var emailError = document.querySelector('.error-mail');
+var telephoneError = document.querySelector('.error-telephone');
+var messageError = document.querySelector('.error-message');
+var checkboxError = document.querySelector('.error-checkbox');
+function validateForm() {
+  function verifyFormFields() {
+    validateForm_form.addEventListener('submit', function (event) {
+      var isValid = true;
+
+      // Clear previous error states
+      clearErrors();
+
+      // Validate name
+      if (nameInput.value.trim() === '') {
+        showError(nameInput, nameError);
+        isValid = false;
+      }
+
+      // Validate surname
+      if (surnameInput.value.trim() === '') {
+        showError(surnameInput, surnameError);
+        isValid = false;
+      }
+
+      // Validate email
+      if (emailInput.value.trim() === '') {
+        showError(emailInput, emailError);
+        isValid = false;
+      } else if (!validateEmail(emailInput.value)) {
+        emailError.textContent = 'Vnesite veljavno email naslovo';
+        showError(emailInput, emailError);
+        isValid = false;
+      }
+
+      // Validate telephone
+      if (telephoneInput.value.trim() === '') {
+        showError(telephoneInput, telephoneError);
+        isValid = false;
+      } else if (!validateTelephone(telephoneInput.value)) {
+        telephoneError.textContent = 'Vnesite najprej plus in samo številke';
+        showError(telephoneInput, telephoneError);
+        isValid = false;
+      }
+
+      // Validate message
+      if (messageInput.value.trim() === '') {
+        showError(messageInput, messageError);
+        isValid = false;
+      }
+
+      // Validate checkbox
+      if (!checkboxInput.checked) {
+        checkboxContainer.classList.add('invalid');
+        checkboxError.classList.remove('hide');
+        isValid = false;
+      }
+      if (!isValid) {
+        event.preventDefault();
+      }
+    });
+  }
+  function showError(input, errorElement) {
+    input.classList.add('invalid');
+    errorElement.classList.remove('hide');
+  }
+  function clearErrors() {
+    [nameInput, surnameInput, emailInput, telephoneInput, messageInput, checkboxInput].forEach(function (input) {
+      input.classList.remove('invalid');
+      checkboxContainer.classList.remove('invalid');
+    });
+    [nameError, surnameError, emailError, telephoneError, messageError, checkboxError].forEach(function (errorElement) {
+      errorElement.classList.add('hide');
+    });
+  }
+  function validateEmail(email) {
+    var re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(String(email).toLowerCase());
+  }
+  function validateTelephone(telephone) {
+    var re = /^\+\d{1,15}$/;
+    return re.test(telephone);
+  }
+
+  // Add focus event listeners to clear errors on focus
+  nameInput.addEventListener('focus', function () {
+    return clearFieldError(nameInput, nameError);
+  });
+  surnameInput.addEventListener('focus', function () {
+    return clearFieldError(surnameInput, surnameError);
+  });
+  emailInput.addEventListener('focus', function () {
+    return clearFieldError(emailInput, emailError);
+  });
+  telephoneInput.addEventListener('focus', function () {
+    return clearFieldError(telephoneInput, telephoneError);
+  });
+  messageInput.addEventListener('focus', function () {
+    return clearFieldError(messageInput, messageError);
+  });
+  checkboxInput.addEventListener('focus', function () {
+    checkboxContainer.classList.remove('invalid');
+    checkboxError.classList.add('hide');
+  });
+  function clearFieldError(input, errorElement) {
+    input.classList.remove('invalid');
+    errorElement.classList.add('hide');
+  }
+  function handleInputFocusBlur() {
+    inputs.forEach(function (input) {
+      input.addEventListener('focus', function (event) {
+        event.target.classList.add('placeholder-hidden');
+      });
+      input.addEventListener('blur', function (event) {
+        if (event.target.value.trim() === '') {
+          event.target.classList.remove('placeholder-hidden');
+        }
+      });
+    });
+  }
+  function restorePlaceholders() {
+    inputs.forEach(function (input) {
+      input.classList.remove('placeholder-hidden');
+    });
+  }
+  restorePlaceholders();
+  handleInputFocusBlur();
+  verifyFormFields();
+}
 ;// CONCATENATED MODULE: ./src/modules/modalResult.js
 
 function showModalResult() {
@@ -23746,51 +23824,53 @@ function spinnerHide() {
 ;// CONCATENATED MODULE: ./src/modules/sendMail.js
 
 
-document.getElementById('contactForm').addEventListener('submit', function (e) {
-  e.preventDefault(); // предотвращает перезагрузку страницы при отправке формы
+function sendMail() {
+  document.getElementById('contactForm').addEventListener('submit', function (e) {
+    e.preventDefault(); // предотвращает перезагрузку страницы при отправке формы
 
-  var name = document.getElementById('name').value;
-  var surname = document.getElementById('surname').value;
-  var email = document.getElementById('email').value;
-  var telephone = document.getElementById('telephone').value;
-  var message = document.getElementById('message').value;
-  var checkbox = document.getElementById('checkbox').checked;
-  var formData = new FormData();
-  formData.append('name', name);
-  formData.append('surname', surname);
-  formData.append('email', email);
-  formData.append('telephone', telephone);
-  formData.append('message', message);
-  formData.append('checkbox', checkbox);
-  if (!name || !surname || !email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) || !telephone || !/^\+\d{1,15}$/.test(telephone) || !message || !checkbox) {
-    return;
-  }
-  spinnerShow();
-  fetch('mailer/smart.php', {
-    method: 'POST',
-    body: formData
-  }).then(function (response) {
-    if (response.ok) {
-      return response.text(); // Если ответ успешен, вернуть текст ответа
-    } else {
-      throw new Error('Network response was not ok');
+    var name = document.getElementById('name').value;
+    var surname = document.getElementById('surname').value;
+    var email = document.getElementById('email').value;
+    var telephone = document.getElementById('telephone').value;
+    var message = document.getElementById('message').value;
+    var checkbox = document.getElementById('checkbox').checked;
+    var formData = new FormData();
+    formData.append('name', name);
+    formData.append('surname', surname);
+    formData.append('email', email);
+    formData.append('telephone', telephone);
+    formData.append('message', message);
+    formData.append('checkbox', checkbox);
+    if (!name || !surname || !email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) || !telephone || !/^\+\d{1,15}$/.test(telephone) || !message || !checkbox) {
+      return;
     }
-  }).then(function (data) {
-    // Обработка ответа
-    console.log('Message sent successfully!');
-    document.getElementById('contactForm').reset(); // Сбрасывает форму
+    spinnerShow();
+    fetch('mailer/smart.php', {
+      method: 'POST',
+      body: formData
+    }).then(function (response) {
+      if (response.ok) {
+        return response.text(); // Если ответ успешен, вернуть текст ответа
+      } else {
+        throw new Error('Network response was not ok');
+      }
+    }).then(function (data) {
+      // Обработка ответа
+      console.log('Message sent successfully!');
+      document.getElementById('contactForm').reset(); // Сбрасывает форму
 
-    spinnerHide();
-    showModalResult();
-    modalContentSuccess();
-  }).catch(function (error) {
-    document.getElementById('contactForm').reset(); // Сбрасывает форму
-    console.error('Message sent failed:', error);
-    spinnerHide();
-    showModalResult();
-    modalContentError();
+      spinnerHide();
+      showModalResult();
+      modalContentSuccess();
+    }).catch(function (error) {
+      document.getElementById('contactForm').reset(); // Сбрасывает форму
+      console.error('Message sent failed:', error);
+      spinnerHide();
+      showModalResult();
+      modalContentError();
+    });
   });
-});
+}
 ;// CONCATENATED MODULE: ./src/index.js
 
 
@@ -23800,6 +23880,14 @@ document.getElementById('contactForm').addEventListener('submit', function (e) {
 
 
 
+document.addEventListener('DOMContentLoaded', function () {
+  navMenu();
+  toggleBurgerMenu();
+  reviews();
+  interview();
+  validateForm();
+  sendMail();
+});
 }();
 /******/ })()
 ;
