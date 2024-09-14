@@ -1,0 +1,61 @@
+.web-dev {
+	background-color: #3e3b37;
+	padding-bottom: 20px;
+	&__wrapper {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+	&__copyright-text {
+		font-family: "Roboto-Light", sans-serif;
+		font-size: 12px;
+		line-height: 18px;
+		letter-spacing: 0.5px;
+		color: #c5bfbf;
+	}
+	&__text {
+		position: relative;
+		font-family: "Roboto-Light", sans-serif;
+		font-size: 10px;
+		line-height: 18px;
+		letter-spacing: 0.5px;
+		max-width: 280px;
+		margin-left:28px;
+		color: #c5bfbf;
+		&::before {
+			content: "";
+			position: absolute;
+			left: -17px;
+			top: 47%;
+			transform: translateY(-50%);
+			width: 15px;
+			height: 15px;
+			background-image: url(./icons/manage_accounts_50dp_FFFFFF_FILL0_wght400_GRAD0_opsz48.png);
+			background-repeat: no-repeat;
+			background-position: center;
+			background-size: 100%;
+		}		
+	}
+	&__link {
+		position: relative;
+		color: #c5bfbf;
+		transition: all ease 0.3s;
+		&::after {
+			content: "";
+			position: absolute;
+			left: 0;
+			bottom: -1px;
+			width: 100%;
+			height: 0.5px;
+			background-color: #c5bfbf;
+			transition: all ease 0.3s;
+		}
+		&:hover {
+			color: #58b6de;
+		}
+		&:hover::after {
+			background-color: #58b6de;
+		}
+	}
+}

@@ -1,0 +1,272 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+@font-face {
+	font-family: "Roboto-Regular";
+	src: url("../fonts/Roboto/Roboto-Regular.ttf") format("truetype");
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "Roboto-Bold";
+	src: url("../fonts/Roboto/Roboto-Bold.ttf") format("truetype");
+	font-weight: normal;
+	font-style: normal;
+}
+
+body {
+	background-color: #f0f0f0;
+}
+
+.about-experience {
+	padding: 100px 0px;
+}
+.about-experience__wrapper {
+	display: flex;
+	justify-content: space-between;
+	margin: 0 auto;
+	margin-top: 40px;
+}
+.experience__container {
+	max-width: 1200px;
+	margin: 0 auto;
+}
+.about-experience__title,
+.my-contacts__title {
+	position: relative;
+	max-width: 260px;
+	margin: 0 auto;
+	font-family: "Roboto-Bold", sans-serif;
+	font-size: 32px;
+	line-height: 42px;
+	color: #4a4747;
+	text-align: center;
+}
+.about-experience__title::before,
+.my-contacts__title::before {
+	content: "";
+	position: absolute;
+	display: block;
+	width: 40px;
+	height: 0.5px;
+	background-color: #4a4747;
+	left: 12px;
+	top: 50%;
+	transform: translateY(-50%);
+}
+.my-contacts__title::before {
+	left: -7px;
+}
+.about-experience__title::after,
+.my-contacts__title::after {
+	content: "";
+	position: absolute;
+	display: block;
+	width: 40px;
+	height: 0.5px;
+	background-color: #4a4747;
+	right: 12px;
+	top: 50%;
+	transform: translateY(-50%);
+}
+.my-contacts__title::after {
+	right: -7px;
+}
+.about-experience__content-sl,
+.about-experience__content-en,
+.about-experience__content-uk {
+	box-sizing: border-box;
+	flex: 1;
+	margin: 20px;
+	padding: 20px;
+	border-radius: 10px;
+	font-family: "Roboto-Regular", sans-serif;
+	font-size: 16px;
+	line-height: 28px;
+	box-shadow: -12px 12px 20px rgba(0, 0, 0, 0.2);
+	transition: box-shadow 0.3s ease;
+	max-width: 340px;
+	min-width: 340px;
+}
+.about-experience__content-sl:hover,
+.about-experience__content-en:hover,
+.about-experience__content-uk:hover {
+	box-shadow: -9px 9px 17px rgba(0, 0, 0, 0.18);
+}
+span {
+	font-family: "Roboto-Bold", sans-serif;
+	font-size: 24px;
+	line-height: 36px;
+	color: #4a4747;
+	display: block;
+	margin-bottom: 15px;
+}
+.my-contacts {
+	padding-bottom: 100px;
+}
+.my-contacts__title::after {
+	right: -7px;
+}
+.my-contacts__img {
+	width: 250px;
+	height: 250px;
+	border-radius: 50%;
+	object-fit: cover;
+	margin: 0 auto;
+	margin-right: 30px;
+}
+.my-contacts__wrapper {
+	display: flex;
+	justify-content: space-between;
+	max-width: 1000px;
+	margin: 0 auto;
+	margin-top: 70px;
+}
+.my-contacts__container {
+	max-width: 1200px;
+	margin: 0 auto;
+}
+.my-contacts__info-title {
+	font-family: "Roboto-Regular", sans-serif;
+	font-size: 15px;
+	line-height: 28px;
+	margin-right: 20px;
+	color: #4a4747;
+}
+.my-contacts__info-text {
+	position: relative;
+	text-decoration: none;
+	color: #868ae0;
+	font-family: "Roboto-Regular", sans-serif;
+	font-size: 16px;
+	line-height: 24px;
+	transition: all 0.3s ease-in-out;
+}
+.my-contacts__info-text:hover {
+	color: #5d78ff;
+}
+.my-contacts__info-text::after {
+	content: "";
+	position: absolute;
+	z-index: 100;
+	left: 0;
+	bottom: 1px;
+	width: 100%;
+	height: 1px;
+	background-color: #868ae0;
+	transition: all 0.3s ease-in-out;
+}
+.my-contacts__info {
+	display: flex;
+	margin-top: 20px;
+	align-items: center;
+}
+.my-contacts__info-text:hover::after {
+	background-color: #5d78ff;
+}
+
+@media (max-width: 1200px) {
+	.experience__container {
+		max-width: 95%;
+	}
+	.about-experience__wrapper {
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+	.about-experience__content-sl,
+	.about-experience__content-en,
+	.about-experience__content-uk {
+		min-width: 300px;
+	}
+	.my-contacts__wrapper {
+		flex-wrap: wrap;
+		justify-content: center;
+		max-width: 900px;
+		margin: 0 auto;
+		margin-top: 40px;
+	}
+}
+
+@media (max-width: 832px) {
+	.about-experience__content-sl,
+	.about-experience__content-en,
+	.about-experience__content-uk {
+		font-size: 14px;
+		line-height: 26px;
+	}
+	span {
+		font-size: 22px;
+		line-height: 34px;
+		margin-bottom: 10px;
+	}
+	.about-experience__title {
+		font-size: 28px;
+		line-height: 38px;
+	}
+	.about-experience__title::before,
+	.my-contacts__title::before {
+		left: 26px;
+		width: 34px;
+	}
+	.my-contacts__title::before {
+		left: -2px;
+	}
+	.about-experience__title::after,
+	.my-contacts__title::after {
+		right: 26px;
+		width: 34px;
+	}
+	.my-contacts__title::after {
+		right: -2px;
+	}
+}
+
+@media (max-width: 768px) {
+	.about-experience {
+		padding: 80px 0px;
+	}
+	.my-contacts {
+		padding-bottom: 80px;
+	}
+}
+
+@media (max-width: 734px) {
+	.my-contacts__wrapper {
+		flex-wrap: wrap;
+
+	}
+	.my-contacts__img {
+		margin: 0 auto;
+		border: 30px solid rgba(255, 255, 255, 0);
+		box-sizing: content-box; 
+		
+	}
+}
+
+@media (max-width: 576px) {
+	
+}
+@media (max-width: 445px) {
+	.my-contacts__info:first-child {
+		flex-direction: column;
+		align-items: flex-start;
+	}
+
+}
+@media (max-width: 423px) {
+	.about-experience__content-sl,
+	.about-experience__content-en,
+	.about-experience__content-uk {
+		min-width: 100%;
+	}
+	.my-contacts__img {
+		margin: 0 auto;
+		border: 0;
+		box-sizing: content-box; 
+		
+	}
+}
