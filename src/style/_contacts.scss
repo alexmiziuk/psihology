@@ -202,7 +202,7 @@
 	}
 }
 
-@media (max-width: 1920px) {
+@media (max-width: 2024px) {
 	.contacts {
 		&__title {
 			font-size: 47px;
@@ -280,7 +280,7 @@
 		}
 		&__button {
 			width: 160px;
-			height: 52px;
+			height: 54px;
 			font-size: 22px;
 			line-height: 22px;
 			border-radius: 9px;
@@ -316,7 +316,7 @@
 			font-size: 20px;
 			border-radius: 7px;
 			width: 133px;
-			height: 45px;
+			height: 49px;
 		}
 	}
 }
@@ -442,6 +442,7 @@
 		}
 		&__button {
 			margin-top: 17px;
+			height: 42px;
 		}
 	}
 }
@@ -454,6 +455,15 @@
 		}
 		&__title {
 			font-size: 30px;
+		}
+		&__wrapper {
+			margin-top: 55px;
+		}
+		&__button {
+			height: 42px;
+			border-radius: 6px;
+			font-size: 18px;
+			width: 128px;
 		}
 	}
 }
@@ -498,3 +508,15 @@
 	}
 }
 
+@media (max-width: 689px) {
+	.contacts {
+		&__wrapper {
+			margin-top: 57px;
+		}
+	}
+}
+@media (max-width: 425px) {
+	.contacts {
+		padding: 70px 0;
+	}
+}

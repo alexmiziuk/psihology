@@ -88,7 +88,7 @@
 	}
 }
 
-@media (max-width: 1920px) {
+@media (max-width: 2024px) {
 	.reviews {
 		.slick-arrow {
 			border: 1px solid #f89f73;
@@ -277,12 +277,12 @@
 		display: none !important;
 	}
 	.reviews {
-		padding: 80px 0 110px 0;
+		padding: 80px 0 134px 0;
 		&__title {
 			font-size: 30px;
 		}
 		&__slider {
-			margin-top: 40px;
+			margin-top: 55px;
 		}
 		&__wrapper-img-name {
 			width: 90%;
@@ -301,8 +301,9 @@
 
 @media (max-width: 576px) {
 	.reviews {
+		padding: 80px 0 107px 0;
 		&__slider {
-			margin-top: 20px;
+			/* margin-top: 20px; */
 		}
 		&__card {
 			padding-left: 7%;
@@ -336,5 +337,11 @@
 		.slick-dots {
 			bottom: -60px;
 		}
+	}
+}
+
+@media (max-width: 425px) {
+	.reviews {
+		padding: 70px 0 97px 0;
 	}
 }

@@ -93,7 +93,7 @@
 	}
 }
 
-@media (max-width: 1920px) {
+@media (max-width: 2024px) {
 	.interview {
 		&__title {
 			font-size: 47px;
@@ -202,12 +202,15 @@
 
 @media (max-width: 768px) {
 	.interview {
-		padding: 80px 0 116px 0;
+		padding: 80px 0 140px 0;
 		&__slide-body {
 			height: 355px;
 		}
 		&__title {
 			font-size: 30px;
+		}
+		&__slider {
+			margin-top: 55px;
 		}
 		.slick-dots {
 			bottom: -96px;

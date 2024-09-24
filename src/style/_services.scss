@@ -113,7 +113,7 @@
 		max-width: 320px;
 	}
 }
-@media (max-width: 1920px) {
+@media (max-width: 2024px) {
 	.services {
 		&__wrapper {
 			width: 1216px;
@@ -150,7 +150,7 @@
 		&__button {
 			margin-top: 42px;
 			font-size: 22px;
-			padding: 14px 50px;
+			padding: 14px 40px;
 			border-radius: 9px;
 		}
 		&__cards-block {
@@ -239,7 +239,7 @@
 		}
 		&__button {
 			font-size: 20px;
-			padding: 12px 40px;
+			padding: 12.9px 40px;
 			border-radius: 7px;
 		}
 		&__cards-block {
@@ -313,6 +313,9 @@
 		}
 		&__button {
 			margin-top: 40px;
+			font-size: 18px;
+			border-radius: 6px;
+			padding: 10px 40px;
 		}
 		&__cards-block {
 			grid-gap: 25px 25px;
@@ -390,7 +393,7 @@
 		padding: 80px 0 80px 0;
 		&__wrapper {
 			flex-direction: column-reverse;
-			margin-top: 28px;
+			margin-top: 46px;
 		}
 		&__wrapper-text {
 			margin-top: 0;
@@ -439,8 +442,8 @@
 			text-align: center;
 		}
 		&__button {
-			width: 212px;
-			height: 44px;
+			width: 203px;
+			height: 42px;
 			padding: 0;
 			display: flex;
 			align-items: center;
@@ -475,10 +478,11 @@
 				}
 			}
 			&__button {
-				font-size: 16px;
-				width: 152px;
+				/* font-size: 16px; */
+				width: 188px;
 				border-radius: 5px;
-				height: 38px;
+				font-family: "Roboto-Medium", sans-serif;
+				height: 41px;
 			}
 		}
 	}
@@ -504,7 +508,7 @@
 
 @media (max-width: 425px) {
 	.services {
-		padding: 50px 0 50px 0;
+		padding: 70px 0 70px 0;
 		&__cards-block {
 			grid-template-columns: repeat(1, 1fr);
 			grid-template-rows: repeat(4, 1fr);

@@ -23,15 +23,16 @@ export function navMenu() {
 			element.style.zIndex = '-1';
 			element.style.opacity = '0';
 			element.style.transition = 'all 0.3s ease';
+
+			navMenuItemsDropdowns.forEach(navMenuItemDropdown => {
+				navMenuItemDropdown.classList.remove('active');
+			});
 		});
 	}
 
 	function closeDropdownsOnBodyClick() {
 		body.addEventListener("click", function (event) {
 			event.stopPropagation();
-			navMenuItemsDropdowns.forEach(navMenuItemDropdown => {
-				navMenuItemDropdown.classList.remove('active');
-			});
 			hiddenElement();
 		});
 	}
@@ -71,6 +72,7 @@ export function navMenu() {
 					submenuWrapperWorks.style.display === 'block' ||
 					submenuWrapperContacts.style.display === 'block') {
 					hiddenElement();
+
 				}
 			});
 		});
@@ -113,6 +115,14 @@ export function navMenu() {
 					clearTimeout(enterTimeout); // Очищаем таймер ухода  
 					const submenu = this.querySelector(`.submenu__${itemId}`);
 					submenu.style.display = 'block';
+					navMenuItemsDropdowns.forEach(navMenuItemDropdown => {
+						if (menuItem.id === navMenuItemDropdown.id) {
+							navMenuItemDropdown.classList.add('active');
+						}
+						else {
+							navMenuItemDropdown.classList.remove('active');
+						}
+					});
 					enterTimeout = setTimeout(() => {
 						visibleElement('all 0.5s ease', submenu);
 					}, 100); // Ожидание перед показом меню  
@@ -142,8 +152,15 @@ export function navMenu() {
 			closeDropdownOnNavMenuItemHover();
 		});
 	}
+	function closeDropdownsOnScroll() {
+		window.addEventListener('scroll', function (event) {
+			event.stopPropagation();
+			hiddenElement();
+		});
+	}
 	closeDropdownsOnBodyClick();
 	closeDropdownsOnNavMenuItemClick();
 	closeDropdownsOnSubMenuItemClick();
 	initializeDropdownMenu(menuItems);
+	closeDropdownsOnScroll();
 }
