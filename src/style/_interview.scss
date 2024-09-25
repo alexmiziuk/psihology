@@ -144,9 +144,6 @@
 		&__slide-body {
 			height: 405px;
 		}
-		&__title {
-			font-size: 50px;
-		}
 		&__slide-link {
 			font-size: 20px;
 		}
@@ -190,6 +187,10 @@
 		.slick-arrow {
 			top: 128.5%;
 		}
+		&__title {
+			font-size: 37px;
+			line-height: 49px;
+		}
 	}
 }
 @media (max-width: 855px) {
@@ -205,9 +206,6 @@
 		padding: 80px 0 140px 0;
 		&__slide-body {
 			height: 355px;
-		}
-		&__title {
-			font-size: 30px;
 		}
 		&__slider {
 			margin-top: 55px;
@@ -233,5 +231,11 @@
 			max-width: 351px;
 			margin: 0 auto;
 		}
+	}
+}
+
+@media (max-width: 396px) {
+	.interview {
+		padding: 70px 0 140px 0;
 	}
 }

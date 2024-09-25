@@ -187,9 +187,6 @@
 		&__wrapper {
 			width: 1028px;
 		}
-		&__title {
-			font-size: 45px;
-		}
 		&__wrapper-text {
 			margin-top: 25px;
 		}
@@ -454,8 +451,7 @@
 	@media (max-width: 576px) {
 		.services {
 			&__title-mobile {
-				font-size: 27px;
-				line-height: 38px;
+				line-height: 37px;
 			}
 			&__wrapper-text {
 				max-width: 300px;
@@ -478,7 +474,6 @@
 				}
 			}
 			&__button {
-				/* font-size: 16px; */
 				width: 188px;
 				border-radius: 5px;
 				font-family: "Roboto-Medium", sans-serif;

@@ -150,9 +150,6 @@
 
 @media (max-width: 576px) {
 	.about-me {
-		&__title {
-			font-size: 30px;
-		}
 		&__img {
 			width: 100%;
 		}
@@ -162,9 +159,6 @@
 @media (max-width: 425px) {
 	.about-me {
 		padding: 70px 0 70px 0;
-		&__title {
-			font-size: 28px;
-		}
 		&__img {
 			object-fit: cover;
 			object-position: center;
