@@ -1,4 +1,5 @@
 import './index.html';
+import './en.html';
 import './index.scss';
 import { navMenu } from './modules/navMenu';
 import { toggleBurgerMenu } from './modules/burgerMenu';

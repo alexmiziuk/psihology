@@ -16,8 +16,8 @@ export function showModalResult() {
 			document.body.style.paddingRight = '';
 			document.body.style.overflow = 'auto';
 		}, 600);
-		 modal.classList.remove('modal-result_visible');
-	}); 
+		modal.classList.remove('modal-result_visible');
+	});
 }
 
 function createModalContent(titleText, textOne, textTwo) {
@@ -40,11 +40,18 @@ function createModalContent(titleText, textOne, textTwo) {
 	modalResultContainer.appendChild(resultTextOne);
 	modalResultContainer.appendChild(resultTextTwo);
 }
-
 export function modalContentSuccess() {
-	createModalContent('Hvala!', 'Vaša sporočilo je bilo uspešno poslano.', 'Zagotovo vas bomo kontaktirali.');
+	if (window.location.pathname.includes('index.html')) {
+		createModalContent('Hvala!', 'Vaša sporočilo je bilo uspešno poslano.', 'Zagotovo vas bomo kontaktirali.');
+	} else {
+		createModalContent('Thank you!', 'Your message has been successfully sent.', 'We will definitely contact you.');
+	}
 }
 
 export function modalContentError() {
-	createModalContent('Napaka!', 'Žal je šlo nekaj narobe.', 'Preverite, ali imate internetno povezavo.');
+	if (window.location.pathname.includes('index.html')) {
+		createModalContent('Napaka!', 'Žal je šlo nekaj narobe.', 'Preverite, ali imate internetno povezavo.');
+	} else {
+		createModalContent('Error!', 'Unfortunately, something went wrong.', 'Check if you have an internet connection.');
+	}
 }

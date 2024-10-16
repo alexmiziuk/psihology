@@ -9,8 +9,7 @@ html {
 	display: block;
 	margin: 0 auto;
 	max-width: 1440px; /* Используйте max-width вместо width */
-	width: 100%
-	
+	width: 100%;
 }
 a {
 	text-decoration: none;
@@ -19,17 +18,26 @@ a {
 	position: absolute;
 	width: 827px;
 	height: 0.5px;
-	background-color: #000000;
+	background-color: #aba4a4;
 	left: 0;
 	right: 0;
 	margin: 0 auto;
-	top: 0;	
+	top: 0;
 }
 ul {
 	list-style-type: none; /* Убираем маркеры */
 }
 
+@media (max-width: 2024px) {
+	.container {
+		width: 84%;
+	}
+}
+
 @media (max-width: 1920px) {
+	.container {
+		width: 79%;
+	}
 	.divider {
 		width: 600px;
 	}
@@ -41,12 +49,22 @@ ul {
 	}
 }
 
+@media (max-width: 1024px) {
+	.container {
+		width: 900px;
+	}
+}
+
 @media (max-width: 768px) {
 	.divider {
 		width: 300px;
 	}
 }
-
+@media (max-width: 924px) {
+	.container {
+		width: 97%;
+	}
+}
 @media (max-width: 576px) {
 	.divider {
 		width: 200px;
@@ -56,7 +74,7 @@ ul {
 	.divider {
 		width: 150px;
 	}
-}	
+}
 
 @import "libs/normalize";
 @import "style/fonts";
@@ -77,4 +95,3 @@ ul {
 @import "style/modalResult";
 @import "style/info";
 @import "style/web-dev";
-

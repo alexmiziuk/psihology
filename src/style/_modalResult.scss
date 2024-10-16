@@ -35,7 +35,6 @@
 			transform: scale(0.75);
 		}
 	}
-
 	&__title {
 		font-family: "Roboto-Regular", sans-serif;
 		font-size: 34px;
@@ -59,7 +58,6 @@
 		z-index: 10000;
 	}
 }
-
 @media (max-width: 768px) {
 	.modal-result {
 		&__title {
@@ -71,7 +69,6 @@
 		}
 	}
 }
-
 @media (max-width: 521px) {
 	.modal-result {
 		width: 97%;

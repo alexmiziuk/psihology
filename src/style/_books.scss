@@ -60,15 +60,15 @@
 		}
 	}
 }
-
 @media (max-width: 2024px) {
 	.books {
+		padding: 92px 0 112px 0;
 		&__wrapper {
-			grid-row-gap: 60px;
-			margin-top: 80px;
+			grid-row-gap: 48px;
+			margin-top: 58px;
 		}
 		&__title {
-			font-size: 47px;
+			font-size: 40px;
 		}
 		&__book-img {
 			max-width: 300px;
@@ -84,7 +84,6 @@
 		}
 	}
 }
-
 @media (max-width: 1440px) {
 	.books {
 		&__book-img {
@@ -92,7 +91,6 @@
 		}
 	}
 }
-
 @media (max-width: 1280px) {
 	.books {
 		&__book-img {
@@ -100,10 +98,14 @@
 		}
 		&__book-about {
 			line-height: 26px;
+			max-height: 314px;
+			overflow: hidden; /* Скрыть текст, выходящий за пределы блока */
+			display: -webkit-box;
+			-webkit-line-clamp: 12; /* Количество строк, после которого текст будет обрезан */
+			-webkit-box-orient: vertical;
 		}
 	}
 }
-
 @media (max-width: 1200px) {
 	.books {
 		&__book-link {
@@ -116,7 +118,6 @@
 		}
 	}
 }
-
 @media (max-width: 1100px) {
 	.books {
 		&__book-img {
@@ -128,7 +129,6 @@
 		}
 	}
 }
-
 @media (max-width: 992px) {
 	.books {
 		&__title {
@@ -152,7 +152,6 @@
 		}
 	}
 }
-
 @media (max-width: 830px) {
 	.books {
 		&__wrapper {
@@ -187,7 +186,10 @@
 }
 @media (max-width: 576px) {
 	.books {
-		.books__wrapper {
+		&__title {
+			font-size: 35px;
+		}
+		&__wrapper {
 			margin-top: 60px;
 		}
 		&__book {

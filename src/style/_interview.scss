@@ -1,5 +1,5 @@
 .interview {
-	padding: 112px 0 193px 0;
+	padding: 112px 0 190px 0;
 	background-image: url(./img/Background/background-interview.png);
 	background-repeat: no-repeat;
 	background-position: center;
@@ -40,6 +40,13 @@
 		&:hover {
 			color: #b4afad;
 		}
+	}
+	&__slide-link--en {
+		max-height: 70px;
+			overflow: hidden; /* Скрыть текст, выходящий за пределы блока */
+			display: -webkit-box;
+			-webkit-line-clamp: 2; /* Количество строк, после которого текст будет обрезан */
+			-webkit-box-orient: vertical;
 	}
 	.slick-arrow {
 		border: 1px solid #f89f73;
@@ -92,12 +99,15 @@
 		color: rgb(202, 201, 201);
 	}
 }
-
 @media (max-width: 2024px) {
 	.interview {
+		padding: 93px 0 190px 0;
 		&__title {
-			font-size: 47px;
+			font-size: 40px;
 		}
+		&__slider {
+			margin-top: 58px;
+	  }
 		.slick-arrow {
 			border: 1px solid #f89f73;
 			border-radius: 50%;
@@ -138,7 +148,6 @@
 		}
 	}
 }
-
 @media (max-width: 1440px) {
 	.interview {
 		&__slide-body {
@@ -152,7 +161,6 @@
 		}
 	}
 }
-
 @media (max-width: 1439px) {
 	.interview {
 		&__slide-body {
@@ -160,7 +168,6 @@
 		}
 	}
 }
-
 @media (max-width: 1200px) {
 	.interview {
 		&__slide-body {
@@ -171,7 +178,6 @@
 		}
 	}
 }
-
 @media (max-width: 1024px) {
 	.interview {
 		&__slide-link {
@@ -200,7 +206,6 @@
 		}
 	}
 }
-
 @media (max-width: 768px) {
 	.interview {
 		padding: 80px 0 140px 0;
@@ -215,7 +220,6 @@
 		}
 	}
 }
-
 @media (max-width: 767px) {
 	.interview {
 		&__slide-body {
@@ -223,9 +227,11 @@
 		}
 	}
 }
-
 @media (max-width: 576px) {
 	.interview {
+		&__title {
+			font-size: 35px;
+		}
 		&__slide-body {
 			height: 450px;
 			max-width: 351px;
@@ -233,7 +239,6 @@
 		}
 	}
 }
-
 @media (max-width: 396px) {
 	.interview {
 		padding: 70px 0 140px 0;

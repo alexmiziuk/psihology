@@ -115,6 +115,7 @@
 }
 @media (max-width: 2024px) {
 	.services {
+		padding: 100px 0 112px 0;
 		&__wrapper {
 			width: 1216px;
 			margin: 0 auto;
@@ -123,10 +124,10 @@
 			width: 50%;
 		}
 		&__title {
-			font-size: 47px;
+			font-size: 40px;
 		}
 		&__wrapper-text {
-			margin-top: 30px;
+			margin-top: 21px;
 			width: 100%;
 		}
 		&__item {
@@ -142,7 +143,7 @@
 			}
 		}
 		&__text {
-			margin-top: 30px;
+			margin-top: 16px;
 			font-size: 16px;
 			line-height: 30px;
 			max-width: 490px;
@@ -181,7 +182,6 @@
 		}
 	}
 }
-
 @media (max-width: 1440px) {
 	.services {
 		&__wrapper {
@@ -228,7 +228,6 @@
 		}
 	}
 }
-
 @media (max-width: 1200px) {
 	.services {
 		&__wrapper {
@@ -279,7 +278,6 @@
 		}
 	}
 }
-
 @media (max-width: 992px) {
 	.services {
 		&__title,
@@ -332,7 +330,6 @@
 		}
 	}
 }
-
 @media (max-width: 885px) {
 	.services {
 		&__wrapper-text {
@@ -384,7 +381,6 @@
 		}
 	}
 }
-
 @media (max-width: 768px) {
 	.services {
 		padding: 80px 0 80px 0;
@@ -447,11 +443,11 @@
 			justify-content: center;
 		}
 	}
-
 	@media (max-width: 576px) {
 		.services {
 			&__title-mobile {
 				line-height: 37px;
+				font-size: 35px;
 			}
 			&__wrapper-text {
 				max-width: 300px;
@@ -482,7 +478,6 @@
 		}
 	}
 }
-
 @media (max-width: 508px) {
 	.services {
 		&__cards-block {
@@ -500,7 +495,6 @@
 		}
 	}
 }
-
 @media (max-width: 425px) {
 	.services {
 		padding: 70px 0 70px 0;

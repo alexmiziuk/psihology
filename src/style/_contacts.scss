@@ -167,6 +167,9 @@
 			}
 		}
 	}
+	&__checkbox-text--en {
+		margin-left: 10px;
+	}
 	&__button {
 		position: relative;
 		display: flex;
@@ -201,11 +204,11 @@
 		border-radius: 7px;
 	}
 }
-
 @media (max-width: 2024px) {
 	.contacts {
+		padding: 93px 0 112px 0;
 		&__title {
-			font-size: 47px;
+			font-size: 40px;
 		}
 		&__google-map {
 			height: 552px;
@@ -230,6 +233,9 @@
 			max-width: 641px;
 			margin-top: 20px;
 		}
+		&__wrapper {
+			margin-top: 48px;
+	  }
 		&__wrapper-name-surname,
 		&__wrapper-email-telephone {
 			display: flex;
@@ -273,7 +279,6 @@
 				font-size: 16px;
 			}
 		}
-
 		&__checkbox-text {
 			font-size: 16px;
 			line-height: 24px;
@@ -292,7 +297,6 @@
 		}
 	}
 }
-
 @media (max-width: 1300px) {
 	.contacts {
 		&__info {
@@ -303,7 +307,6 @@
 		}
 	}
 }
-
 @media (max-width: 1200px) {
 	.contacts {
 		&__info {
@@ -320,7 +323,6 @@
 		}
 	}
 }
-
 @media (max-width: 1100px) {
 	.contacts {
 		&__private {
@@ -350,7 +352,6 @@
 		}
 	}
 }
-
 @media (max-width: 1024px) {
 	.contacts {
 		&__info {
@@ -358,7 +359,6 @@
 		}
 	}
 }
-
 @media (max-width: 992px) {
 	.contacts {
 		&__google-map {
@@ -446,7 +446,6 @@
 		}
 	}
 }
-
 @media (max-width: 768px) {
 	.contacts {
 		padding: 80px 0 80px 0;
@@ -464,7 +463,6 @@
 		}
 	}
 }
-
 @media (max-width: 767px) {
 	.contacts {
 		&__google-map {
@@ -472,7 +470,6 @@
 		}
 	}
 }
-
 @media (max-width: 689px) {
 	.contacts {
 		&__google-map {
@@ -504,11 +501,17 @@
 		}
 	}
 }
-
 @media (max-width: 689px) {
 	.contacts {
 		&__wrapper {
 			margin-top: 57px;
+		}
+	}
+}
+@media (max-width: 576px) {
+	.contacts {
+		&__title {
+			font-size: 35px;
 		}
 	}
 }

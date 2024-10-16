@@ -34,7 +34,6 @@ textarea.placeholder-hidden::placeholder {
 .hide {
 	display: none;
 }
-
 @media (max-width: 1920px) {
 	.error {
 		&-checkbox {
@@ -42,7 +41,6 @@ textarea.placeholder-hidden::placeholder {
 		}
 	}
 }
-
 @media (max-width: 1100px) {
 	.error {
 		&-checkbox {
@@ -50,7 +48,6 @@ textarea.placeholder-hidden::placeholder {
 		}
 	}
 }
-
 @media (max-width: 992px) {
 	.error {
 		&-checkbox {
@@ -58,6 +55,3 @@ textarea.placeholder-hidden::placeholder {
 		}
 	}
 }
-
-
-

@@ -13,7 +13,6 @@
 		display: flex;
 		justify-content: space-between;
 	}
-
 	&__telephone-container,
 	&__email-container,
 	&__address-container div {
@@ -128,7 +127,6 @@
 		}
 	}
 }
-
 @media (max-width: 2024px) {
 	.info {
 		.nav__logo-specialist {
@@ -187,7 +185,6 @@
 		}
 	}
 }
-
 @media (max-width: 992px) {
 	.info {
 		.nav__logo-specialist {
@@ -243,7 +240,6 @@
 		}
 	}
 }
-
 @media (max-width: 870px) {
 	.info {
 		&__wrapper {
@@ -251,7 +247,6 @@
 		}
 	}
 }
-
 @media (max-width: 768px) {
 	.info {
 		padding: 80px 0 80px 0;
@@ -271,7 +266,6 @@
 		}
 	}
 }
-
 @media (max-width: 607px) {
 	.info {
 		.nav__logo-wrapper {
@@ -293,7 +287,6 @@
 		}
 	}
 }
-
 @media (max-width: 499px) {
 	.info {
 		&__contacts,
@@ -304,7 +297,6 @@
 		}
 	}
 }
-
 @media (max-width: 375px) {
 	.info {
 		.nav__logo-wrapper,

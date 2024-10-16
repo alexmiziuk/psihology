@@ -35,20 +35,20 @@
 		letter-spacing: 0.5px;
 	}
 }
-
 @media (max-width: 2024px) {
 	.skills {
+		padding: 100px 0 112px 0;
 		&__wrapper {
 			padding: 75px 74px 68px 133px;
 			width: 627px;
 			border-radius: 12px;
 		}
 		&__title {
-			font-size: 47px;
+			font-size: 40px;
 		}
 		&__question {
 			font-size: 28px;
-			margin-top: 39px;
+			margin-top: 29px;
 		}
 		&__text {
 			font-size: 18px;
@@ -59,7 +59,6 @@
 		}
 	}
 }
-
 @media (max-width: 1440px) {
 	.skills {
 		&__wrapper {
@@ -77,7 +76,6 @@
 		}
 	}
 }
-
 @media (max-width: 1200px) {
 	.skills {
 		&__wrapper {
@@ -89,7 +87,6 @@
 		}
 	}
 }
-
 @media (max-width: 1024px) {
 	.skills {
 		background-position: 70%;
@@ -100,7 +97,6 @@
 		}
 	}
 }
-
 @media (max-width: 992px) {
 	.skills {
 		&__wrapper {
@@ -123,7 +119,6 @@
 		}
 	}
 }
-
 @media (max-width: 768px) {
 	.skills {
 		padding: 80px 0 80px 0;
@@ -139,9 +134,11 @@
 		}
 	}
 }
-
 @media (max-width: 576px) {
 	.skills {
+		&__title {
+			font-size: 35px;
+		}
 		&__wrapper {
 			padding: 48px 45px 45px 55px;
 			width: 388px;
@@ -179,7 +176,6 @@
 	  }
 	}
 }
-
 @media (max-width: 375px) {
 	.skills {
 		background-position: 65%;
